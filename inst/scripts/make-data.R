@@ -30,13 +30,13 @@ metadata(adultGene) <- list(
 
 
 ## Save
-save(rse_gene, "~/inst/extdata/rse_gene_smoking_mouse_n208.Rdata")
-save(rse_tx, "~/inst/extdata/rse_tx_smoking_mouse_n208.Rdata")
-save(rse_jx, "~/inst/extdata/rse_jx_smoking_mouse_n208.Rdata")
-save(rse_exon, "~/inst/extdata/rse_exon_smoking_mouse_n208.Rdata")
-save(fetalGene, "~/inst/extdata/fetalGene.Rdata")
-save(adultGene, "~/inst/extdata/adultGene.Rdata")
-save(Maternal_Smoking_pheno, "~/inst/extdata/Maternal_Smoking_pheno.txt")
+save(rse_gene, file="rse_gene_smoking_mouse_n208.Rdata")
+save(rse_tx, file="rse_tx_smoking_mouse_n208.Rdata")
+save(rse_jx, file="rse_jx_smoking_mouse_n208.Rdata")
+save(rse_exon, file="rse_exon_smoking_mouse_n208.Rdata")
+save(fetalGene, file="fetalGene.Rdata")
+save(adultGene, file="adultGene.Rdata")
+save(Maternal_Smoking_pheno, file="Maternal_Smoking_pheno.txt")
 
 
 
