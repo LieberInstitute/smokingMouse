@@ -60,7 +60,7 @@ meta <- data.frame(
       "Maternal_Smoking_pheno.txt"
     )
   ),
-  Tags = "smoking_mouse:LIBD:mouse",
+  Tags = "smokingMouse:LIBD:mouse",
   row.names = NULL,
   stringsAsFactors = FALSE
 )
