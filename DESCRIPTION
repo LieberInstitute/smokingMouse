@@ -1,0 +1,21 @@
+Package: smokingmousePkg
+Title: Provides access to smokingMouse project processed data objects
+Version: 0.99.0
+Date: 2023-02-28
+Authors@R: 
+    person("Daianna", "Gonzalez-Padilla", , "daianna2121@outlook.es", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This is an ExperimentHub package that provides access to the raw and processed data generated at the gene, exon, tx and jx levels, 
+             in all phases of the smoking mouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects.
+License: Artistic-2.0
+BugReports: https://support.bioconductor.org/t/smokingmousePkg
+Imports: 
+    ExperimentHub
+Suggests: 
+    ExperimentHubData,
+    testthat (>= 3.0.0)
+biocViews: ExperimentHub
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Config/testthat/edition: 3
