@@ -67,13 +67,13 @@ meta <- data.frame(
 
 write.csv(
   meta,
-  file = here::here("inst", "extdata", "metadata_smokingMouse.csv"),
+  file = here::here("inst", "extdata", "metadata.csv"),
   row.names = FALSE
 )
 
 ## Check
 if (FALSE) {
-  AnnotationHubData::makeAnnotationHubMetadata(here::here(), fileName = "metadata_smokingMouse.csv")
+  AnnotationHubData::makeAnnotationHubMetadata(here::here(), fileName = "metadata.csv")
 }
 
 
