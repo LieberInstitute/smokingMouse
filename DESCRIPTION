@@ -1,5 +1,5 @@
 Package: smokingMouse
-Title: Provides access to smokingMouse project raw and processed data objects
+Title: Provides access to smokingMouse project raw and processed data 
 Version: 0.99.0
 Date: 2023-02-28
 Authors@R: 

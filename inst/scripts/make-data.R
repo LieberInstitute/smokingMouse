@@ -1,4 +1,6 @@
 
+## This was run locally
+
 library("here")
 library("sessioninfo")
 
@@ -30,7 +32,7 @@ metadata(adultGene) <- list(
 
 
 ## Save
-save(rse_gene, file="rse_gene_smoking_mouse_n208.Rdata")
+save(rse_gene, file="~/Desktop/smokingMouse/rse_gene_smoking_mouse_n208.Rdata")
 save(rse_tx, file="rse_tx_smoking_mouse_n208.Rdata")
 save(rse_jx, file="rse_jx_smoking_mouse_n208.Rdata")
 save(rse_exon, file="rse_exon_smoking_mouse_n208.Rdata")
