@@ -1,44 +1,69 @@
 
-## This was run locally
+## This was run locally but can be ran on JHPCE at. ....????
 
-library("here")
-library("sessioninfo")
+library(here)
+library(sessioninfo)
+library(SummarizedExperiment)
+library(GenomicRanges)
 
+## Load rse objects and human data
 
-##################
-##   Raw data
-##################
-
-## Load
-
-load(here("~/Desktop/smokingMouse_Indirects/raw-data/rse_gene_smoking_mouse_n208.Rdata"), verbose = TRUE)
-load(here("~/Desktop/smokingMouse_Indirects/raw-data/rse_tx_smoking_mouse_n208.Rdata"), verbose = TRUE)
-load(here("~/Desktop/smokingMouse_Indirects/raw-data/rse_jx_smoking_mouse_n208.Rdata"), verbose = TRUE)
-load(here("~/Desktop/smokingMouse_Indirects/raw-data/rse_exon_smoking_mouse_n208.Rdata"), verbose = TRUE)
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_gene_complete.Rdata"), verbose = TRUE)
+# rse_gene
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_exon_complete.Rdata"), verbose = TRUE)
+# rse_exon
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_tx_complete.Rdata"), verbose = TRUE)
+# rse_tx
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_jx_complete.Rdata"), verbose = TRUE)
+# rse_jx
 load(here("~/Desktop/smokingMouse_Indirects/raw-data/Genes_DE_sva.rda"), verbose = TRUE)
-Maternal_Smoking_pheno <- read.table("~/Desktop/smokingMouse_Indirects/raw-data/Maternal_Smoking_pheno.txt")
+# fetalGene
+# adultGene
 
+## Make GRanges from human data
+de_genes_prenatal_human_brain_smoking<- makeGRangesFromDataFrame(fetalGene, keep.extra.columns = TRUE)
+de_genes_adult_human_brain_smoking <- makeGRangesFromDataFrame(adultGene, keep.extra.columns = TRUE)
+
+
+## Add metadata to rse objects
+metadata(rse_gene) <- list(
+  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+)
+
+metadata(rse_exon) <- list(
+  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+)
+
+metadata(rse_tx) <- list(
+  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+)
+
+metadata(rse_jx) <- list(
+  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+)
 
 ## Add metadata to human data from Semick SA et al. (2018)
-metadata(fetalGene) <- list(
+metadata(de_genes_prenatal_human_brain_smoking) <- list(
   "Downloaded_from"="https://github.com/LieberInstitute/Smoking_DLPFC_Devel",
   "Cite_this_paper"="https://www.nature.com/articles/s41380-018-0223-1"
 )
 
-metadata(adultGene) <- list(
+metadata(de_genes_adult_human_brain_smoking) <- list(
   "Downloaded_from"="https://github.com/LieberInstitute/Smoking_DLPFC_Devel",
   "Cite_this_paper"="https://www.nature.com/articles/s41380-018-0223-1"
 )
 
 
-## Save
-save(rse_gene, file="~/Desktop/smokingMouse/inst/extdata/rse_gene_smoking_mouse_n208.Rdata")
-save(rse_tx, file="~/Desktop/smokingMouse/inst/extdata/rse_tx_smoking_mouse_n208.Rdata")
-save(rse_jx, file="~/Desktop/smokingMouse/inst/extdata/rse_jx_smoking_mouse_n208.Rdata")
-save(rse_exon, file="~/Desktop/smokingMouse/inst/extdata/rse_exon_smoking_mouse_n208.Rdata")
-save(fetalGene, file="~/Desktop/smokingMouse/inst/extdata/fetalGene.Rdata")
-save(adultGene, file="~/Desktop/smokingMouse/inst/extdata/adultGene.Rdata")
-save(Maternal_Smoking_pheno, file="~/Desktop/smokingMouse/inst/extdata/Maternal_Smoking_pheno.txt")
+
+## Save rse objects under more informative names
+save(rse_gene, file="~/Desktop/smokingMouse/inst/extdata/rse_gene_mouse_RNAseq-data.Rdata")
+save(rse_tx, file="~/Desktop/smokingMouse/inst/extdata/rse_tx_mouse_RNAseq-data.Rdata")
+save(rse_jx, file="~/Desktop/smokingMouse/inst/extdata/rse_jx_mouse_RNAseq-data.Rdata")
+save(rse_exon, file="~/Desktop/smokingMouse/inst/extdata/rse_exon_mouse_RNAseq-data.Rdata")
+save(de_genes_prenatal_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_prenatal_human_brain_smoking.Rdata")
+save(de_genes_adult_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_adult_human_brain_smoking.Rdata")
+
+
 
 
 
