@@ -3,7 +3,7 @@ library("here")
 library("sessioninfo")
 
 
-outdir <- "inst/extdata"
+outdir <- "smokingMouse_files"
 pkgname <- "smokingMouse"
 
 
