@@ -12,7 +12,12 @@ BugReports: https://support.bioconductor.org/t/smokingMouse
 Imports: 
     ExperimentHub
 Suggests: 
+    BiocStyle,
     ExperimentHubData,
+    knitr,
+    RefManageR,
+    rmarkdown,
+    sessioninfo,
     testthat (>= 3.0.0)
 biocViews: ExperimentHub, ExpressionData, Mus_musculus_Data, RNASeqData
 Encoding: UTF-8
@@ -20,3 +25,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Config/testthat/edition: 3
 URL: https://github.com/LieberInstitute/smokingMouse
+VignetteBuilder: knitr
