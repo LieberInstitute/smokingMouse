@@ -3,7 +3,7 @@ Title: Provides access to smokingMouse project data
 Version: 0.99.0
 Date: 2023-02-28
 Authors@R: 
-    person("Daianna", "Gonzalez-Padilla", "daianna2121@outlook.es", role = c("aut", "cre"),
+    person(given="Daianna", family="Gonzalez-Padilla", email="daianna2121@outlook.es", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: This is an ExperimentHub package that provides access to the data at the gene, exon, transcript and junction levels, 
              used in the analyses of the smokingMouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects.
