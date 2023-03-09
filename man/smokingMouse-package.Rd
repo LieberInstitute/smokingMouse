@@ -4,10 +4,11 @@
 \name{smokingMouse-package}
 \alias{smokingMouse-package}
 \alias{smokingMouse}
-\title{Provides access to raw and processed data of the smokingMouse project}
+\title{Provides access to data of the smokingMouse project}
 \description{
-This is an ExperimentHub package that provides access to the raw and processed data generated at the gene, exon, tx and jx levels,
-in all phases of the smoking mouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects.
+This is an ExperimentHub package that provides access to the data at the gene, exon, transcript and junction levels,
+used in the analyses of the smokingMouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects.
+License: Artistic-2.0
 }
 \author{
 Daianna Gonzalez-Padilla
