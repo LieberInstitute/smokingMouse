@@ -9,10 +9,10 @@ pkgname <- "smokingMouse"
 
 meta <- data.frame(
   Title = c(
-    "rse_gene_mouse_RNAseq-data",
-    "rse_tx_mouse_RNAseq-data",
-    "rse_jx_mouse_RNAseq-data",
-    "rse_exon_mouse_RNAseq-data",
+    "rse_gene_mouse_RNAseq_nic-smo",
+    "rse_tx_mouse_RNAseq_nic-smo",
+    "rse_jx_mouse_RNAseq_nic-smo",
+    "rse_exon_mouse_RNAseq_nic-smo",
     "de_genes_prenatal_human_brain_smoking",
     "de_genes_adult_human_brain_smoking"
   ),
@@ -40,10 +40,10 @@ meta <- data.frame(
     pkgname,
     outdir,
     c(
-      "rse_gene_mouse_RNAseq-data.Rdata",
-      "rse_tx_mouse_RNAseq-data.Rdata",
-      "rse_jx_mouse_RNAseq-data.Rdata",
-      "rse_exon_mouse_RNAseq-data.Rdata",
+      "rse_gene_mouse_RNAseq_nic-smo.Rdata",
+      "rse_tx_mouse_RNAseq_nic-smo.Rdata",
+      "rse_jx_mouse_RNAseq_nic-smo.Rdata",
+      "rse_exon_mouse_RNAseq_nic-smo.Rdata",
       "de_genes_prenatal_human_brain_smoking.Rdata",
       "de_genes_adult_human_brain_smoking.Rdata"
     )
