@@ -6,6 +6,6 @@ test_that("metadata is valid",
         BiocManager::install("AnnotationHubData")
 
     path <- find.package("smokingMouse")
-    metadata <- system.file("extdata", "metadata.csv", package = "smokingMouse")
-    expect_true(AnnotationHubData::makeAnnotationHubMetadata(path, metadata))
+    metadata <- "metadata.csv"
+    expect_type(AnnotationHubData::makeAnnotationHubMetadata(path, metadata), "list")
 })
