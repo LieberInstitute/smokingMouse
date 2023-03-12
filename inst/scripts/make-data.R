@@ -8,13 +8,13 @@ library(GenomicRanges)
 
 ## Load rse objects and human data
 
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_gene_complete.Rdata"), verbose = TRUE)
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_gene_complete.Rdata"), verbose = TRUE)
 # rse_gene
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_exon_complete.Rdata"), verbose = TRUE)
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_exon_complete.Rdata"), verbose = TRUE)
 # rse_exon
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_tx_complete.Rdata"), verbose = TRUE)
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_tx_complete.Rdata"), verbose = TRUE)
 # rse_tx
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/data/rse_jx_complete.Rdata"), verbose = TRUE)
+load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_jx_complete.Rdata"), verbose = TRUE)
 # rse_jx
 load(here("~/Desktop/smokingMouse_Indirects/raw-data/Genes_DE_sva.rda"), verbose = TRUE)
 # fetalGene
@@ -27,19 +27,19 @@ de_genes_adult_human_brain_smoking <- makeGRangesFromDataFrame(adultGene, keep.e
 
 ## Add metadata to rse objects
 metadata(rse_gene) <- list(
-  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
 )
 
 metadata(rse_exon) <- list(
-  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
 )
 
 metadata(rse_tx) <- list(
-  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
 )
 
 metadata(rse_jx) <- list(
-  "Downloaded_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/build_final-data.R"
+  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
 )
 
 ## Add metadata to human data from Semick SA et al. (2018)
