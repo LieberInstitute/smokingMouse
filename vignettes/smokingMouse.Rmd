@@ -197,7 +197,7 @@ ehub <- ExperimentHub::ExperimentHub()
 ```{r 'download_data'}
 ## Download rse_gene object as example
 ## Query ExperimentHub and download the data
-rse_gene <- fetch_data("rse_gene", eh = ehub)
+## rse_gene <- fetch_data("rse_gene", eh = ehub)
 ```
 
 
