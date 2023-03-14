@@ -12,7 +12,7 @@ Description: This is an ExperimentHub package that provides access to the data a
 License: Artistic-2.0
 BugReports: https://support.bioconductor.org/t/smokingMouse
 Imports: 
-    ExperimentHub
+    ExperimentHub, AnnotationHubData
 Suggests: 
     BiocStyle,
     ExperimentHubData,
