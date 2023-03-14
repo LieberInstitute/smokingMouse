@@ -56,12 +56,12 @@ metadata(de_genes_adult_human_brain_smoking) <- list(
 
 
 ## Save rse objects under more informative names
-save(rse_gene, file="~/Desktop/smokingMouse/inst/extdata/rse_gene_mouse_RNAseq_nic-smo.Rdata")
-save(rse_tx, file="~/Desktop/smokingMouse/inst/extdata/rse_tx_mouse_RNAseq_nic-smo.Rdata")
-save(rse_jx, file="~/Desktop/smokingMouse/inst/extdata/rse_jx_mouse_RNAseq_nic-smo.Rdata")
-save(rse_exon, file="~/Desktop/smokingMouse/inst/extdata/rse_exon_mouse_RNAseq_nic-smo.Rdata")
-save(de_genes_prenatal_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_prenatal_human_brain_smoking.Rdata")
-save(de_genes_adult_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_adult_human_brain_smoking.Rdata")
+save(rse_gene, file="~/Desktop/smokingMouse/inst/extdata/rse_gene_mouse_RNAseq_nic-smo.Rdata", version = 2)
+save(rse_tx, file="~/Desktop/smokingMouse/inst/extdata/rse_tx_mouse_RNAseq_nic-smo.Rdata", version = 2)
+save(rse_jx, file="~/Desktop/smokingMouse/inst/extdata/rse_jx_mouse_RNAseq_nic-smo.Rdata", version = 2)
+save(rse_exon, file="~/Desktop/smokingMouse/inst/extdata/rse_exon_mouse_RNAseq_nic-smo.Rdata", version = 2)
+save(de_genes_prenatal_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_prenatal_human_brain_smoking.Rdata", version = 2)
+save(de_genes_adult_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_adult_human_brain_smoking.Rdata", version = 2)
 
 
 
