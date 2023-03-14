@@ -234,7 +234,6 @@ The `r Biocpkg("smokingMouse")` package `r Citep(bib[["smokingMouse"]])` was mad
 * `r CRANpkg('pheatmap')` `r Citep(bib[['pheatmap']])`
 * `r Biocpkg('GenomicRanges')` `r Citep(bib[['GenomicRanges']])`
 * `r Biocpkg('rtracklayer')` `r Citep(bib[['rtracklayer']])`
-* `r [AcidGenomes](https://r.acidgenomics.com/packages/acidgenomes/)` `r Citep(bib[['AcidGenomes']])`
 
 This package was developed using `r BiocStyle::Biocpkg("biocthis")`.
 
