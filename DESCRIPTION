@@ -16,6 +16,7 @@ Imports:
     ExperimentHub, AnnotationHubData
 Suggests: 
     BiocStyle,
+    covr,
     ExperimentHubData,
     knitr,
     RefManageR,

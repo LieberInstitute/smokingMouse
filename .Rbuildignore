@@ -1,3 +1,6 @@
 ^smokingMouse\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
+^dev$
+^README\.Rmd$
+^codecov\.yml$

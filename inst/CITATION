@@ -1,0 +1,31 @@
+pkgVer <- function(pkg) {
+    if (!exists("meta") || is.null(meta)) meta <- packageDescription(pkg)
+    ver <- meta$Version
+    paste0('https://github.com/LieberInstitute/smokingMouse/', pkg, ' - R package version ', ver)
+}
+
+c(
+
+    bibentry(bibtype="manual",
+        title = "Provides access to smokingMouse project data ",
+        author = personList(
+            as.person("Daianna Gonzalez-Padilla"),
+            as.person("Leonardo Collado-Torres")
+        ),
+        year = format(Sys.Date(), "%Y"),
+        url = "http://www.bioconductor.org/packages/smokingMouse",
+        note = pkgVer('smokingMouse'),
+        doi = '10.18129/B9.bioc.smokingMouse'
+    ),
+    bibentry(bibtype="article",
+        title = "Provides access to smokingMouse project data",
+        author = personList(
+            as.person("Daianna Gonzalez-Padilla"),
+            as.person("Leonardo Collado-Torres")
+        ),
+        year = format(Sys.Date(), "%Y"),
+        journal = "bioRxiv",
+        doi = "10.1101/TODO",
+        url = "https://www.biorxiv.org/content/10.1101/TODO"
+    )
+)
