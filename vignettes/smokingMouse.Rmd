@@ -75,27 +75,32 @@ bib <- c(
 # Welcome
 
 Welcome to the `smokingMouse` project.
-
 In this vignette we'll show you how to access the smokingMouse LIBD datasets `r Citep(bib[['smokingMouse']])`.
 You can find the analysis code and the data generation in [here](https://github.com/LieberInstitute/smokingMouse_Indirects).
 
 ## Overview
-This project consisted of a differential expression analysis (DEA) involving 4 data types: genes, exons, transcripts and junctions. The main goal of this study was to explore the effects of smoking and nicotine exposures on the developing brain of mice pups. As secondary objectives, this work evaluated the affected genes by each substance on adult brain in order to compare pup and adult results, and the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. Finally, mice DEG were compared against results of a previous study on human to see how consistent the results were.
+This project consisted of a differential expression analysis (DEA) involving 4 data types: genes, exons, transcripts and junctions. 
+The main goal of this study was to explore the effects of smoking and nicotine exposures on the developing brain of mice pups. 
+As secondary objectives, this work evaluated the affected genes by each substance on adult brain in order to compare pup and adult results, and the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. 
+Finally, mice DEG were compared against results of a previous study on human to see how consistent the results were.
 
 ## Study design
-36 pregnant mice and 35 not pregnant female adults were administered nicotine (n=12), exposed to cigarette smoke (n=24) or controls (n=35) and RNA sequencing experiments were performed on frontal cortices of all the resultant 137 P0 pups and on frontal cortices (n=47) and blood (n=24) from the 71 adults, totaling 208 samples. Of the total pup samples, 19 were born to mice that were administered nicotine, 46 to mice exposed to smoking and the remaining 72 to control mice.
+36 pregnant mice and 35 not pregnant female adults were administered nicotine (n=12), exposed to cigarette smoke (n=24) or controls (n=35) and RNA sequencing experiments were performed on frontal cortices of all the resultant 137 P0 pups and on frontal cortices (n=47) and blood (n=24) from the 71 adults, totaling 208 samples. 
+Of the total pup samples, 19 were born to mice that were administered nicotine, 46 to mice exposed to smoking and the remaining 72 to control mice.
 
 
 # Basics
 
 ## Install `smokingMouse`
 
-`R` is an open-source statistical environment which can be easily modified to enhance its functionality via packages. `r Biocpkg("smokingMouse")` is a `R` package available via the [Bioconductor](http://bioconductor.org) repository for packages. `R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Biocpkg("smokingMouse")` by using the following commands in your `R` session:
+`R` is an open-source statistical environment which can be easily modified to enhance its functionality via packages.
+`r Biocpkg("smokingMouse")` is a `R` package available via the [Bioconductor](http://bioconductor.org) repository for packages. 
+`R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Biocpkg("smokingMouse")` by using the following commands in your `R` session:
 
 ```{r "install", eval = FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
-      install.packages("BiocManager")
-  }
+    install.packages("BiocManager")
+}
 
 BiocManager::install("smokingMouse")
 
@@ -105,14 +110,17 @@ BiocManager::valid()
 
 ## Required knowledge
 
-`r Biocpkg("smokingMouse")` is based on many other packages and in particular in those that have implemented the infrastructure needed for dealing with RNA-seq data and differential expression. That is, packages like `r Biocpkg("SummarizedExperiment")` and `r Biocpkg("limma")`.
+`r Biocpkg("smokingMouse")` is based on many other packages and in particular in those that have implemented the infrastructure needed for dealing with RNA-seq data and differential expression. 
+That is, packages like `r Biocpkg("SummarizedExperiment")` and `r Biocpkg("limma")`.
 
 If you are asking yourself the question "Where do I start using Bioconductor?" you might be interested in [this blog post](http://lcolladotor.github.io/2014/10/16/startbioc/#.VkOKbq6rRuU).
 
-
 ## Asking for help
 
-As package developers, we try to explain clearly how to use our packages and in which order to use the functions. But `R` and `Bioconductor` have a steep learning curve so it is critical to learn where to ask for help. The blog post quoted above mentions some but we would like to highlight the [Bioconductor support site](https://support.bioconductor.org/) as the main resource for getting help: remember to use the `smokingMouse` tag and check [the older posts](https://support.bioconductor.org/tag/smokingMouse/). Other alternatives are available such as creating GitHub issues and tweeting. However, please note that if you want to receive help you should adhere to the [posting guidelines](http://www.bioconductor.org/help/support/posting-guide/). It is particularly critical that you provide a small reproducible example and your session information so package developers can track down the source of the error.
+As package developers, we try to explain clearly how to use our packages and in which order to use the functions. But `R` and `Bioconductor` have a steep learning curve so it is critical to learn where to ask for help. 
+The blog post quoted above mentions some but we would like to highlight the [Bioconductor support site](https://support.bioconductor.org/) as the main resource for getting help: remember to use the `smokingMouse` tag and check [the older posts](https://support.bioconductor.org/tag/smokingMouse/). 
+Other alternatives are available such as creating GitHub issues and tweeting. However, please note that if you want to receive help you should adhere to the [posting guidelines](http://www.bioconductor.org/help/support/posting-guide/). 
+It is particularly critical that you provide a small reproducible example and your session information so package developers can track down the source of the error.
 
 ## Citing `smokingMouse`
 
@@ -122,6 +130,7 @@ We hope that `r Biocpkg("smokingMouse")` will be useful for your research. Pleas
 ## Citation info
 citation("smokingMouse")
 ```
+
 
 # Quick start to using `smokingMouse`
 
@@ -134,7 +143,8 @@ library("smokingMouse")
 
 # smoking Mouse datasets
 
-The raw data was generated by LIBD researchers and is composed of expression counts of genes, transcripts (txs), exons and exon-exon junctions (jxns) across all mice samples (brain/blood; adult/pup; nicotine-exposed/smoking-exposed). The datasets available in `r Biocpkg("smokingMouse")` were generated by Daianna Gonzalez-Padilla. 
+The raw data was generated by LIBD researchers and is composed of expression counts of genes, transcripts (txs), exons and exon-exon junctions (jxns) across all mice samples (brain/blood; adult/pup; nicotine-exposed/smoking-exposed). 
+The datasets available in `r Biocpkg("smokingMouse")` were generated by Daianna Gonzalez-Padilla. 
 The human data was generated by Semick SA et al. (2018), Mol Psychiatry, DOI: https://doi.org/10.1038/s41380-018-0223-1 and it contains the results of a DEA in adult and prenatal human brain samples exposed to cigarette smoke. 
 
 ## Description of the datasets:
@@ -146,7 +156,6 @@ Mouse datasets:
 Human datasets:
 * They are two data frames with the information of human genes and some relevant statistical metrics of differential expression (DE).
 
-
 ## Data specifics 
 
 * rse_gene_mouse_RNAseq_nic-smo.Rdata: (rse_gene object) the gene RSE object contains expression data of 55401 genes across 208 samples. 
@@ -155,7 +164,6 @@ Human datasets:
 * rse_jx_mouse_RNAseq_nic-smo.Rdata: (rse_jx object) the jx RSE object contains expression data of 1436068 exon-exon junctions across 208 samples. 
 * de_genes_prenatal_human_brain_smoking.Rdata: (object with the same name) data frame with DE (ctrls vs smoking-exposed) data of 18067 genes.
 * de_genes_adult_human_brain_smoking.Rdata: (object with the same name) data frame with DE (ctrls vs smoking-exposed) data of 18067 genes.
-
 
 ## Variables of mice data
 
@@ -167,27 +175,22 @@ Feature information in `rowData(RSE)` contains the following variables:
 * `DE_in_adult_blood_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in adult blood samples exposed to cigarette smoke and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
 * `DE_in_pup_brain_nicotine`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in pup brain samples exposed to nicotine and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
 * `DE_in_pup_brain_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in pup brain samples exposed to cigarette smoke and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
-
 The rest of the variables are outputs of SPEAQeasy pipeline. See [here](http://research.libd.org/SPEAQeasy/outputs.html) for a description of them. 
-
 
 Sample information in `colData(RSE)` contains the following variables:
 
 * The Quality Control (QC) variables `sum`,`detected`,`subsets_Mito_sum`, `subsets_Mito_detected`, `subsets_Mito_percent`, `subsets_Ribo_sum`,`subsets_Ribo_detected` and `subsets_Ribo_percent` are returned by `addPerCellQC()`. See [here](https://rdrr.io/bioc/scuttle/man/addPerCellQC.html).
 * `retained_after_QC_sample_filtering`: Boolean variable that equals TRUE if the sample passed the sample filtering based on QC metrics and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/code/03_EDA/02_QC.R).
 * `retained_after_manual_sample_filtering`: Boolean variable that equals TRUE if the sample passed the manual sample filtering based on PCA plots and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/code/03_EDA/03_PCA_MDS.R)
-
 The rest of the variables are outputs of SPEAQeasy. See [here](http://research.libd.org/SPEAQeasy/outputs.html) for their description. 
-
 
 ## Variables of human data
 Check [here](https://github.com/LieberInstitute/Smoking_DLPFC_Devel) to see the data generation.
 
-
-
 ## Downloading the data with `smokingMouse`
 
-Using `r Biocpkg('smokingMouse')` `r Citep(bib[['smokingMouse']])` you can download these R objects. They are hosted by [Bioconductor](http://bioconductor.org/)'s `r Biocpkg('ExperimentHub')` `r Citep(bib[['ExperimentHub']])` resource and you can download them using `smokingMouse::fetch_data()`. `fetch_data()` is used to query `r Biocpkg('ExperimentHub')` that will download the data and cache it. Below you can see how to obtain these objects.
+Using `r Biocpkg('smokingMouse')` `r Citep(bib[['smokingMouse']])` you can download these R objects. They are hosted by [Bioconductor](http://bioconductor.org/)'s `r Biocpkg('ExperimentHub')` `r Citep(bib[['ExperimentHub']])` resource and you can download them using `smokingMouse::fetch_data()`. `fetch_data()` is used to query `r Biocpkg('ExperimentHub')` that will download the data and cache it. 
+Below you can see how to obtain these objects.
 
 ```{r 'experiment_hub'}
 ## Connect to ExperimentHub
