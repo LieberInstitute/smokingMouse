@@ -8,6 +8,9 @@ library(sessioninfo)
 library(SummarizedExperiment)
 library(GenomicRanges)
 
+################################################################################
+##                       1.  Load and build datasets                   
+################################################################################
 
 ## Load original rse objects (from the smokingMouse_Indirects project) with the correct sample info in colData and logcounts as an assay:
 
@@ -80,7 +83,6 @@ colData(rse_tx)$retained_after_QC_sample_filtering <- unlist(sapply(rse_tx$SAMPL
 colData(rse_jx)$retained_after_QC_sample_filtering <- unlist(sapply(rse_jx$SAMPLE_ID, function(x){if(x %in% retained_samples){TRUE} else {FALSE}}))
 
 
-
 ########### 03_PCA_MDS ###########
 
 ## 1. Manual sample filtering (removal of rare samples identified in PCA plots)
@@ -91,6 +93,7 @@ load(here("~/Desktop/smokingMouse_Indirects/processed-data/03_EDA/03_PCA/rse_gen
 # rse_gene_brain_adults_qc_afterPCA
 load(here("~/Desktop/smokingMouse_Indirects/processed-data/03_EDA/03_PCA/rse_gene_brain_pups_qc_afterPCA.Rdata"), verbose = TRUE)
 # rse_gene_brain_pups_qc_afterPCA
+
 
 ## Add column to colData (of the original rse objects) with the info of samples retained and dropped after manual sample filtering
 retained_samples <- union(rse_gene_blood_qc$SAMPLE_ID, union(rse_gene_brain_adults_qc_afterPCA$SAMPLE_ID, rse_gene_brain_pups_qc_afterPCA$SAMPLE_ID))
@@ -189,12 +192,15 @@ rowData(rse_jx)$DE_in_pup_brain_smoking <- unlist(sapply(rownames(rowData(rse_jx
 
 
 
+################################################################################
+##                   2. Add metadata and save datasets                   
+################################################################################
+
 ## Make GRanges from human data
 de_genes_prenatal_human_brain_smoking<- makeGRangesFromDataFrame(fetalGene, keep.extra.columns = TRUE)
 de_genes_adult_human_brain_smoking <- makeGRangesFromDataFrame(adultGene, keep.extra.columns = TRUE)
 
-
-## Add metadata to rse objects
+## Add metadata to rse objects (mouse data)
 metadata(rse_gene) <- list(
   "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects"
 )
@@ -209,77 +215,6 @@ metadata(rse_tx) <- list(
 
 metadata(rse_jx) <- list(
   "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects"
-)
-
-## Add metadata to human data from Semick SA et al. (2018)
-metadata(de_genes_prenatal_human_brain_smoking) <- list(
-  "Downloaded_from"="https://github.com/LieberInstitute/Smoking_DLPFC_Devel",
-  "Cite_this_paper"="https://www.nature.com/articles/s41380-018-0223-1"
-)
-
-metadata(de_genes_adult_human_brain_smoking) <- list(
-  "Downloaded_from"="https://github.com/LieberInstitute/Smoking_DLPFC_Devel",
-  "Cite_this_paper"="https://www.nature.com/articles/s41380-018-0223-1"
-)
-
-
-
-## Save rse objects under more informative names
-save(rse_gene, file="~/Desktop/smokingMouse/inst/extdata/rse_gene_mouse_RNAseq_nic-smo.Rdata", version = 2)
-save(rse_tx, file="~/Desktop/smokingMouse/inst/extdata/rse_tx_mouse_RNAseq_nic-smo.Rdata", version = 2)
-save(rse_jx, file="~/Desktop/smokingMouse/inst/extdata/rse_jx_mouse_RNAseq_nic-smo.Rdata", version = 2)
-save(rse_exon, file="~/Desktop/smokingMouse/inst/extdata/rse_exon_mouse_RNAseq_nic-smo.Rdata", version = 2)
-save(de_genes_prenatal_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_prenatal_human_brain_smoking.Rdata", version = 2)
-save(de_genes_adult_human_brain_smoking, file="~/Desktop/smokingMouse/inst/extdata/de_genes_adult_human_brain_smoking.Rdata", version = 2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Load rse objects and human data
-
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_gene_complete.Rdata"), verbose = TRUE)
-# rse_gene
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_exon_complete.Rdata"), verbose = TRUE)
-# rse_exon
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_tx_complete.Rdata"), verbose = TRUE)
-# rse_tx
-load(here("~/Desktop/smokingMouse_Indirects/smokingMouse_pkg/inst/extdata/rse_jx_complete.Rdata"), verbose = TRUE)
-# rse_jx
-load(here("~/Desktop/smokingMouse_Indirects/raw-data/Genes_DE_sva.rda"), verbose = TRUE)
-# fetalGene
-# adultGene
-
-## Make GRanges from human data
-de_genes_prenatal_human_brain_smoking<- makeGRangesFromDataFrame(fetalGene, keep.extra.columns = TRUE)
-de_genes_adult_human_brain_smoking <- makeGRangesFromDataFrame(adultGene, keep.extra.columns = TRUE)
-
-
-## Add metadata to rse objects
-metadata(rse_gene) <- list(
-  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
-)
-
-metadata(rse_exon) <- list(
-  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
-)
-
-metadata(rse_tx) <- list(
-  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
-)
-
-metadata(rse_jx) <- list(
-  "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/smokingMouse_pkg/inst/scripts/make-data_smokingMouse.R"
 )
 
 ## Add metadata to human data from Semick SA et al. (2018)
