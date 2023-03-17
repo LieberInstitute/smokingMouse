@@ -38,37 +38,15 @@ library("RefManageR")
 ## Write bibliography information
 bib <- c(
     R = citation(),
-    AnnotationHub = citation("AnnotationHub")[1],
-    cowplot = citation("cowplot")[1],
-    edgeR = citation("edgeR")[1],
+    AnnotationHubData = citation("AnnotationHubData")[1],
     ExperimentHub = citation("ExperimentHub")[1],
+    ExperimentHubData = citation("ExperimentHubData")[1],
     BiocStyle = citation("BiocStyle")[1],
     knitr = citation("knitr")[1],
     RefManageR = citation("RefManageR")[1],
     rmarkdown = citation("rmarkdown")[1],
     sessioninfo = citation("sessioninfo")[1],
-    testthat = citation("testthat")[1],
-    smokingMouse = citation("smokingMouse")[1],
-    jaffelab = citation("jaffelab")[1],
-    SummarizedExperiment = citation("SummarizedExperiment")[1],
-    ggplot2 = citation("ggplot2")[1],
-    rlang = citation("rlang")[1],
-    scater = citation("scater")[1],
-    ggrepel = citation("ggrepel")[1],
-    gridExtra = citation("gridExtra")[1],
-    variancePartition = citation("variancePartition")[1],
-    stats = citation("stats")[1],
-    limma = citation("limma")[1],
-    VennDiagram = citation("VennDiagram")[1],
-    biomartr = citation("biomartr")[1],
-    Hmisc = citation("Hmisc")[1],
-    R.utils = citation("R.utils")[1],
-    clusterProfiler = citation("clusterProfiler")[1],
-    org.Mm.eg.db = citation("org.Mm.eg.db")[1],
-    pheatmap = citation("pheatmap")[1],
-    GenomicRanges = citation("GenomicRanges")[1],
-    rtracklayer = citation("rtracklayer")[1],
-    AcidGenomes = citation("AcidGenomes")[1]
+    testthat = citation("testthat")[1]
 )
 ```
 
