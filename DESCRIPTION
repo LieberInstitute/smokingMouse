@@ -7,8 +7,9 @@ Authors@R:
     person(given="Daianna", family="Gonzalez-Padilla", email="daianna2121@outlook.es", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0005-8348-3195"))
     )
-Description: This is an ExperimentHub package that provides access to the data at the gene, exon, transcript and junction levels, 
-             used in the analyses of the smokingMouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects.
+Description: This is an ExperimentHub package that provides access to the data at the gene, exon, transcript and junction level used in the analyses of the smokingMouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects. 
+             This datasets contain the expression counts of genes, transcripts, exons and exon-exon junctions across 208 mice samples from pup and adult brains and adult blood.
+             They also contain relevant information of these samples and features, such as conditions, QC metrics and if they were used after filtering steps and also if the features were differently expressed in the different experiments.
 License: Artistic-2.0
 BugReports: https://support.bioconductor.org/t/smokingMouse
 Imports: 
