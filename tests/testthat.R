@@ -9,4 +9,5 @@
 library(testthat)
 library(smokingMouse)
 
+setwd("~/Desktop/smokingMouse/tests")
 test_check("smokingMouse")
