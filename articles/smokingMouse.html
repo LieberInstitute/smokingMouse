@@ -78,7 +78,7 @@ Gonzalez-Padilla</h4>
 (LIBD)<br><a class="author_email" href="mailto:#"></a><a href="mailto:daianna2121@outlook.es" class="email">daianna2121@outlook.es</a>
       </address>
                   
-            <h4 data-toc-skip class="date">17 March 2023</h4>
+            <h4 data-toc-skip class="date">24 March 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/LieberInstitute/smokingMouse/blob/HEAD/vignettes/smokingMouse.Rmd" class="external-link"><code>vignettes/smokingMouse.Rmd</code></a></small>
       <div class="hidden name"><code>smokingMouse.Rmd</code></div>
@@ -91,9 +91,8 @@ Gonzalez-Padilla</h4>
 <h2 id="welcome">Welcome<a class="anchor" aria-label="anchor" href="#welcome"></a>
 </h2>
 <p>Welcome to the <code>smokingMouse</code> project. In this vignette
-we’ll show you how to access the smokingMouse LIBD datasets
-(Gonzalez-Padilla and Collado-Torres, 2023). You can find the analysis
-code and the data generation in <a href="https://github.com/LieberInstitute/smokingMouse_Indirects" class="external-link">here</a>.</p>
+we’ll show you how to access the smokingMouse LIBD datasets . You can
+find the analysis code and the data generation in <a href="https://github.com/LieberInstitute/smokingMouse_Indirects" class="external-link">here</a>.</p>
 <div class="section level3">
 <h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h3>
@@ -235,21 +234,41 @@ expression (DE).</p>
 <h3 id="data-specifics">Data specifics<a class="anchor" aria-label="anchor" href="#data-specifics"></a>
 </h3>
 <ul>
-<li>rse_gene_mouse_RNAseq_nic-smo.Rdata: (rse_gene object) the gene RSE
-object contains expression data of 55401 genes across 208 samples.</li>
-<li>rse_tx_mouse_RNAseq_nic-smo.Rdata: (rse_tx object) the tx RSE object
-contains expression data of 142604 transcripts across 208 samples.</li>
-<li>rse_exon_mouse_RNAseq_nic-smo.Rdata: (rse_exon object) the exon RSE
-object contains expression data of 447670 exons across 208 samples.</li>
-<li>rse_jx_mouse_RNAseq_nic-smo.Rdata: (rse_jx object) the jx RSE object
-contains expression data of 1436068 exon-exon junctions across 208
-samples.</li>
-<li>de_genes_prenatal_human_brain_smoking.Rdata: (object with the same
-name) data frame with DE (ctrls vs smoking-exposed) data of 18067
-genes.</li>
-<li>de_genes_adult_human_brain_smoking.Rdata: (object with the same
-name) data frame with DE (ctrls vs smoking-exposed) data of 18067
-genes.</li>
+<li>
+<em>‘rse_gene_mouse_RNAseq_nic-smo.Rdata’</em>: (rse_gene object)
+the gene RSE object contains raw and normalized expression data of 55401
+mouse genes across 208 samples from brains and blood of healthy and
+nicotine/smoking-exposed pup and adult mice.</li>
+<li>
+<em>‘rse_tx_mouse_RNAseq_nic-smo.Rdata’</em>: (rse_tx object) the tx
+RSE object contains raw and normalized expression data of 142604 mouse
+transcripts across 208 samples from brains and blood of healthy and
+nicotine/smoking-exposed pup and adult mice.</li>
+<li>
+<em>‘rse_exon_mouse_RNAseq_nic-smo.Rdata’</em>: (rse_exon object)
+the exon RSE object contains raw and normalized expression data of
+447670 mouse exons across 208 samples from brains and blood of healthy
+and nicotine/smoking-exposed pup and adult mice.</li>
+<li>
+<em>‘rse_jx_mouse_RNAseq_nic-smo.Rdata’</em>: (rse_jx object) the jx
+RSE object contains raw and normalized expression data of 1436068 mouse
+exon-exon junctions across 208 samples from brains and blood of healthy
+and nicotine/smoking-exposed pup and adult mice.</li>
+</ul>
+<p>All the above datasets contain sample and feature information and
+additional data of the results obtained in the filtering steps and the
+DEA.</p>
+<ul>
+<li>
+<em>‘de_genes_prenatal_human_brain_smoking.Rdata’</em>: (object with
+the same name) data frame with DE (ctrls vs smoking-exposed samples)
+data of 18067 genes in human prenatal brain samples exposed to cigarette
+smoke.</li>
+<li>
+<em>‘de_genes_adult_human_brain_smoking.Rdata’</em>: (object with
+the same name) data frame with DE (ctrls vs smoking-exposed samples)
+data of 18067 genes in human adult brain samples exposed to cigarette
+smoke.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -316,8 +335,7 @@ to see the data generation.</p>
 <h3 id="downloading-the-data-with-smokingmouse">Downloading the data with <code>smokingMouse</code><a class="anchor" aria-label="anchor" href="#downloading-the-data-with-smokingmouse"></a>
 </h3>
 <p>Using <em><a href="https://bioconductor.org/packages/3.16/smokingMouse" class="external-link">smokingMouse</a></em>
-(Gonzalez-Padilla and Collado-Torres, 2023) you can download these R
-objects. They are hosted by <a href="http://bioconductor.org/" class="external-link">Bioconductor</a>’s <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub" class="external-link">ExperimentHub</a></em>
+you can download these R objects. They are hosted by <a href="http://bioconductor.org/" class="external-link">Bioconductor</a>’s <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub" class="external-link">ExperimentHub</a></em>
 (Morgan and Shepherd, 2022) resource and you can download them using
 <code>smokingMouse::fetch_data()</code>. <code>fetch_data()</code> is
 used to query <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub" class="external-link">ExperimentHub</a></em>
@@ -337,8 +355,7 @@ obtain these objects.</p>
 <h2 id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a>
 </h2>
 <p>The <em><a href="https://bioconductor.org/packages/3.16/smokingMouse" class="external-link">smokingMouse</a></em>
-package (Gonzalez-Padilla and Collado-Torres, 2023) was made possible
-thanks to:</p>
+package was made possible thanks to:</p>
 <ul>
 <li>R (R Core Team, 2022)</li>
 <li>
@@ -360,74 +377,30 @@ Chang, and Iannone, 2023)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=testthat" class="external-link">testthat</a></em>
 (Wickham, 2011)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/AnnotationHub" class="external-link">AnnotationHub</a></em>
-(Morgan and Shepherd, 2022)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=cowplot" class="external-link">cowplot</a></em>
-(Wilke, 2020)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/edgeR" class="external-link">edgeR</a></em>
-(Robinson, McCarthy, and Smyth, 2010)</li>
+<li><em><a href="https://bioconductor.org/packages/3.16/AnnotationHub" class="external-link">AnnotationHub</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=cowplot" class="external-link">cowplot</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/edgeR" class="external-link">edgeR</a></em></li>
 <li>
 <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub" class="external-link">ExperimentHub</a></em>
 (Morgan and Shepherd, 2022)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=jaffelab" class="external-link">jaffelab</a></em>
-(Collado-Torres, Jaffe, and Burke, 2021)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/SummarizedExperiment" class="external-link">SummarizedExperiment</a></em>
-(Morgan, Obenchain, Hester, and Pagès, 2022)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=ggplot2" class="external-link">ggplot2</a></em>
-(Wickham, 2016)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=ggrepel" class="external-link">ggrepel</a></em>
-(Slowikowski, 2023)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/scater" class="external-link">scater</a></em>
-(McCarthy, Campbell, Lun, and Willis, 2017)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=rlang" class="external-link">rlang</a></em> (Henry
-and Wickham, 2023)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=gridExtra" class="external-link">gridExtra</a></em>
-(Auguie, 2017)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/variancePartition" class="external-link">variancePartition</a></em>
-(Hoffman and Schadt, 2016)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/limma" class="external-link">limma</a></em>
-(Ritchie, Phipson, Wu, Hu, Law, Shi, and Smyth, 2015)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=VennDiagram" class="external-link">VennDiagram</a></em>
-(Chen, 2022)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=biomartr" class="external-link">biomartr</a></em>
-(Hajk-Georg and Jerzy, 2017)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=Hmisc" class="external-link">Hmisc</a></em> (Harrell
-Jr, 2023)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=R.utils" class="external-link">R.utils</a></em>
-(Bengtsson, 2022)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/clusterProfiler" class="external-link">clusterProfiler</a></em>
-(Wu, Hu, Xu, Chen, Guo, Dai, Feng, Zhou, Tang, Zhan, Fu, Liu, Bo, and
-Yu, 2021)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/org.Mm.eg.db" class="external-link">org.Mm.eg.db</a></em>
-(Carlson, 2022)</li>
-<li>
-<em><a href="https://CRAN.R-project.org/package=pheatmap" class="external-link">pheatmap</a></em>
-(Kolde, 2019)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/GenomicRanges" class="external-link">GenomicRanges</a></em>
-(Lawrence, Huber, Pagès, Aboyoun, Carlson, Gentleman, Morgan, and Carey,
-2013)</li>
-<li>
-<em><a href="https://bioconductor.org/packages/3.16/rtracklayer" class="external-link">rtracklayer</a></em>
-(Lawrence, Gentleman, and Carey, 2009)</li>
+<li><em><a href="https://CRAN.R-project.org/package=jaffelab" class="external-link">jaffelab</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/SummarizedExperiment" class="external-link">SummarizedExperiment</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=ggplot2" class="external-link">ggplot2</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=ggrepel" class="external-link">ggrepel</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/scater" class="external-link">scater</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=rlang" class="external-link">rlang</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=gridExtra" class="external-link">gridExtra</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/variancePartition" class="external-link">variancePartition</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/limma" class="external-link">limma</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=VennDiagram" class="external-link">VennDiagram</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=biomartr" class="external-link">biomartr</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=Hmisc" class="external-link">Hmisc</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=R.utils" class="external-link">R.utils</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/clusterProfiler" class="external-link">clusterProfiler</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/org.Mm.eg.db" class="external-link">org.Mm.eg.db</a></em></li>
+<li><em><a href="https://CRAN.R-project.org/package=pheatmap" class="external-link">pheatmap</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/GenomicRanges" class="external-link">GenomicRanges</a></em></li>
+<li><em><a href="https://bioconductor.org/packages/3.16/rtracklayer" class="external-link">rtracklayer</a></em></li>
 </ul>
 <p>This package was developed using <em><a href="https://bioconductor.org/packages/3.16/biocthis" class="external-link">biocthis</a></em>.</p>
 <p>Code for creating the vignette</p>
@@ -440,9 +413,9 @@ Yu, 2021)</li>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/" class="external-link">"knitr"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html" class="external-link">knit</a></span><span class="op">(</span><span class="st">"smokingMouse.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code><span><span class="co">#&gt; [1] "2023-03-17 12:54:32 CST"</span></span></code></pre>
+<pre><code><span><span class="co">#&gt; [1] "2023-03-24 12:42:06 CST"</span></span></code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code><span><span class="co">#&gt; Time difference of 7.154 secs</span></span></code></pre>
+<pre><code><span><span class="co">#&gt; Time difference of 9.194 secs</span></span></code></pre>
 <p><code>R</code> session information.</p>
 <pre><code><span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
@@ -454,7 +427,7 @@ Yu, 2021)</li>
 <span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       America/Mexico_City</span></span>
-<span><span class="co">#&gt;  date     2023-03-17</span></span>
+<span><span class="co">#&gt;  date     2023-03-24</span></span>
 <span><span class="co">#&gt;  pandoc   2.19.2 @ /private/var/folders/r6/94s0dsks4m3298b0d1mrp5tw0000gn/T/AppTranslocation/D8EC8F04-E0D9-4B65-A263-98E21E7E241C/d/RStudio.app/Contents/Resources/app/quarto/bin/tools/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
@@ -564,7 +537,7 @@ Yu, 2021)</li>
 <span><span class="co">#&gt;  sass                     0.4.5     <span style="color: #555555;">2023-01-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  sessioninfo            * 1.2.2     <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  shiny                    1.7.4     <span style="color: #555555;">2022-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  smokingMouse           * 0.99.0    <span style="color: #555555;">2023-03-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  smokingMouse           * 0.99.0    <span style="color: #555555;">2023-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
 <span><span class="co">#&gt;  stringdist               0.9.10    <span style="color: #555555;">2022-11-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  stringi                  1.7.12    <span style="color: #555555;">2023-01-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  stringr                  1.5.0     <span style="color: #555555;">2022-12-02</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -605,193 +578,44 @@ Documents for R</em>. R package version 2.20. 2023. URL:
 <a href="https://github.com/rstudio/rmarkdown" class="external-link">https://github.com/rstudio/rmarkdown</a>.</cite>
 </p>
 <p>
-<a id="bib-auguie2017gridextra"></a><a href="#cite-auguie2017gridextra">[2]</a><cite>
-B. Auguie. <em>gridExtra: Miscellaneous Functions for "Grid"
-Graphics</em>. R package version 2.3. 2017. URL:
-<a href="https://CRAN.R-project.org/package=gridExtra" class="external-link">https://CRAN.R-project.org/package=gridExtra</a>.</cite>
-</p>
-<p>
-<a id="bib-bengtsson2022utils"></a><a href="#cite-bengtsson2022utils">[3]</a><cite>
-H. Bengtsson. <em>R.utils: Various Programming Utilities</em>. R package
-version 2.12.2. 2022. URL:
-<a href="https://CRAN.R-project.org/package=R.utils" class="external-link">https://CRAN.R-project.org/package=R.utils</a>.</cite>
-</p>
-<p>
-<a id="bib-carlson2022genome"></a><a href="#cite-carlson2022genome">[4]</a><cite>
-M. Carlson. <em>org.Mm.eg.db: Genome wide annotation for Mouse</em>. R
-package version 3.16.0. 2022.</cite>
-</p>
-<p>
-<a id="bib-chen2022venndiagram"></a><a href="#cite-chen2022venndiagram">[5]</a><cite>
-H. Chen. <em>VennDiagram: Generate High-Resolution Venn and Euler
-Plots</em>. R package version 1.7.3. 2022. URL:
-<a href="https://CRAN.R-project.org/package=VennDiagram" class="external-link">https://CRAN.R-project.org/package=VennDiagram</a>.</cite>
-</p>
-<p>
-<a id="bib-colladotorres2021jaffelab"></a><a href="#cite-colladotorres2021jaffelab">[6]</a><cite>
-L. Collado-Torres, A. E. Jaffe, and E. E. Burke. <em>jaffelab: Commonly
-used functions by the Jaffe lab</em>. R package version 0.99.32. 2021.
-URL:
-<a href="https://github.com/LieberInstitute/jaffelab" class="external-link">https://github.com/LieberInstitute/jaffelab</a>.</cite>
-</p>
-<p>
-<a id="bib-gonzalezpadilla2023provides"></a><a href="#cite-gonzalezpadilla2023provides">[7]</a><cite>
-D. Gonzalez-Padilla and L. Collado-Torres. <em>Provides access to
-smokingMouse project data </em>. <a href="https://github.com/LieberInstitute/smokingMouse/smokingMouse" class="external-link uri">https://github.com/LieberInstitute/smokingMouse/smokingMouse</a>
-- R package version 0.99.0. 2023. DOI:
-<a href="https://doi.org/10.18129/B9.bioc.smokingMouse" class="external-link">10.18129/B9.bioc.smokingMouse</a>.
-URL:
-<a href="http://www.bioconductor.org/packages/smokingMouse" class="external-link">http://www.bioconductor.org/packages/smokingMouse</a>.</cite>
-</p>
-<p>
-<a id="bib-hajkgeorg2017biomartr"></a><a href="#cite-hajkgeorg2017biomartr">[8]</a><cite>
-D. Hajk-Georg and P. Jerzy. “Biomartr: genomic data retrieval with R”.
-In: <em>Bioinformatics</em> (2017). URL:
-<a href="https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btw821/2931816/Biomartr-genomic-data-retrieval-with-R" class="external-link">https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btw821/2931816/Biomartr-genomic-data-retrieval-with-R</a>.</cite>
-</p>
-<p>
-<a id="bib-harrelljr2023hmisc"></a><a href="#cite-harrelljr2023hmisc">[9]</a><cite>
-F. Harrell Jr. <em>Hmisc: Harrell Miscellaneous</em>. R package version
-5.0-1. 2023. URL:
-<a href="https://CRAN.R-project.org/package=Hmisc" class="external-link">https://CRAN.R-project.org/package=Hmisc</a>.</cite>
-</p>
-<p>
-<a id="bib-henry2023rlang"></a><a href="#cite-henry2023rlang">[10]</a><cite>
-L. Henry and H. Wickham. <em>rlang: Functions for Base Types and Core R
-and ‘Tidyverse’ Features</em>. R package version 1.1.0. 2023. URL:
-<a href="https://CRAN.R-project.org/package=rlang" class="external-link">https://CRAN.R-project.org/package=rlang</a>.</cite>
-</p>
-<p>
-<a id="bib-hoffman2016variancepartition"></a><a href="#cite-hoffman2016variancepartition">[11]</a><cite>
-G. E. Hoffman and E. E. Schadt. “variancePartition: Interpreting drivers
-of variation in complex gene expression studies”. In: <em>BMC
-Bioinformatics</em> 17 (483 2016). DOI:
-<a href="https://doi.org/10.1186/s12859-016-1323-z" class="external-link">10.1186/s12859-016-1323-z</a>.</cite>
-</p>
-<p>
-<a id="bib-kolde2019pheatmap"></a><a href="#cite-kolde2019pheatmap">[12]</a><cite>
-R. Kolde. <em>pheatmap: Pretty Heatmaps</em>. R package version 1.0.12.
-2019. URL:
-<a href="https://CRAN.R-project.org/package=pheatmap" class="external-link">https://CRAN.R-project.org/package=pheatmap</a>.</cite>
-</p>
-<p>
-<a id="bib-lawrence2009rtracklayer"></a><a href="#cite-lawrence2009rtracklayer">[13]</a><cite>
-M. Lawrence, R. Gentleman, and V. Carey. “rtracklayer: an R package for
-interfacing with genome browsers”. In: <em>Bioinformatics</em> 25
-(2009), pp. 1841-1842. DOI:
-<a href="https://doi.org/10.1093/bioinformatics/btp328" class="external-link">10.1093/bioinformatics/btp328</a>.
-URL:
-<a href="http://bioinformatics.oxfordjournals.org/content/25/14/1841.abstract" class="external-link">http://bioinformatics.oxfordjournals.org/content/25/14/1841.abstract</a>.</cite>
-</p>
-<p>
-<a id="bib-lawrence2013software"></a><a href="#cite-lawrence2013software">[14]</a><cite>
-M. Lawrence, W. Huber, H. Pagès, et al. “Software for Computing and
-Annotating Genomic Ranges”. In: <em>PLoS Computational Biology</em> 9 (8
-2013). DOI:
-<a href="https://doi.org/10.1371/journal.pcbi.1003118" class="external-link">10.1371/journal.pcbi.1003118</a>.
-URL:
-<a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118%7D." class="external-link"></a><a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118" class="external-link uri">http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118</a>}.
-</cite></p>
-
-
-<p>
-<a id="bib-mccarthy2017scater"></a><a href="#cite-mccarthy2017scater">[15]</a><cite>
-D. J. McCarthy, K. R. Campbell, A. T. L. Lun, et al. “Scater:
-pre-processing, quality control, normalisation and visualisation of
-single-cell RNA-seq data in R”. In: <em>Bioinformatics</em> 33 (8 2017),
-pp. 1179-1186. DOI:
-<a href="https://doi.org/10.1093/bioinformatics/btw777" class="external-link">10.1093/bioinformatics/btw777</a>.</cite>
-</p>
-<p>
-<a id="bib-mclean2017refmanager"></a><a href="#cite-mclean2017refmanager">[16]</a><cite>
+<a id="bib-mclean2017refmanager"></a><a href="#cite-mclean2017refmanager">[2]</a><cite>
 M. W. McLean. “RefManageR: Import and Manage BibTeX and BibLaTeX
 References in R”. In: <em>The Journal of Open Source Software</em>
 (2017). DOI:
 <a href="https://doi.org/10.21105/joss.00338" class="external-link">10.21105/joss.00338</a>.</cite>
 </p>
 <p>
-<a id="bib-morgan2022summarizedexperiment"></a><a href="#cite-morgan2022summarizedexperiment">[17]</a><cite>
-M. Morgan, V. Obenchain, J. Hester, et al. <em>SummarizedExperiment:
-SummarizedExperiment container</em>. R package version 1.28.0. 2022.
-URL:
-<a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">https://bioconductor.org/packages/SummarizedExperiment</a>.</cite>
-</p>
-<p>
-<a id="bib-morgan2022annotationhub"></a><a href="#cite-morgan2022annotationhub">[18]</a><cite>
-M. Morgan and L. Shepherd. <em>AnnotationHub: Client to access
-AnnotationHub resources</em>. R package version 3.6.0. 2022.</cite>
-</p>
-<p>
-<a id="bib-morgan2022experimenthub"></a><a href="#cite-morgan2022experimenthub">[19]</a><cite>
+<a id="bib-morgan2022experimenthub"></a><a href="#cite-morgan2022experimenthub">[3]</a><cite>
 M. Morgan and L. Shepherd. <em>ExperimentHub: Client to access
 ExperimentHub resources</em>. R package version 2.6.0. 2022.</cite>
 </p>
 <p>
-<a id="bib-ole2022biocstyle"></a><a href="#cite-ole2022biocstyle">[20]</a><cite>
+<a id="bib-ole2022biocstyle"></a><a href="#cite-ole2022biocstyle">[4]</a><cite>
 A. Oleś. <em>BiocStyle: Standard styles for vignettes and other
 Bioconductor documents</em>. R package version 2.26.0. 2022. URL:
 <a href="https://github.com/Bioconductor/BiocStyle" class="external-link">https://github.com/Bioconductor/BiocStyle</a>.</cite>
 </p>
 <p>
-<a id="bib-2022language"></a><a href="#cite-2022language">[21]</a><cite>
+<a id="bib-2022language"></a><a href="#cite-2022language">[5]</a><cite>
 R Core Team. <em>R: A Language and Environment for Statistical
 Computing</em>. R Foundation for Statistical Computing. Vienna, Austria,
 2022. URL:
 <a href="https://www.R-project.org/" class="external-link">https://www.R-project.org/</a>.</cite>
 </p>
 <p>
-<a id="bib-ritchie2015limma"></a><a href="#cite-ritchie2015limma">[22]</a><cite>
-M. E. Ritchie, B. Phipson, D. Wu, et al. “limma powers differential
-expression analyses for RNA-sequencing and microarray studies”. In:
-<em>Nucleic Acids Research</em> 43.7 (2015), p. e47. DOI:
-<a href="https://doi.org/10.1093/nar/gkv007" class="external-link">10.1093/nar/gkv007</a>.</cite>
-</p>
-<p>
-<a id="bib-robinson2010edger"></a><a href="#cite-robinson2010edger">[23]</a><cite>
-M. D. Robinson, D. J. McCarthy, and G. K. Smyth. “edgeR: a Bioconductor
-package for differential expression analysis of digital gene expression
-data”. In: <em>Bioinformatics</em> 26.1 (2010), pp. 139-140. DOI:
-<a href="https://doi.org/10.1093/bioinformatics/btp616" class="external-link">10.1093/bioinformatics/btp616</a>.</cite>
-</p>
-<p>
-<a id="bib-slowikowski2023ggrepel"></a><a href="#cite-slowikowski2023ggrepel">[24]</a><cite>
-K. Slowikowski. <em>ggrepel: Automatically Position Non-Overlapping Text
-Labels with ‘ggplot2’</em>. R package version 0.9.3. 2023. URL:
-<a href="https://CRAN.R-project.org/package=ggrepel" class="external-link">https://CRAN.R-project.org/package=ggrepel</a>.</cite>
-</p>
-<p>
-<a id="bib-wickham2016ggplot2"></a><a href="#cite-wickham2016ggplot2">[25]</a><cite>
-H. Wickham. <em>ggplot2: Elegant Graphics for Data Analysis</em>.
-Springer-Verlag New York, 2016. ISBN: 978-3-319-24277-4. URL:
-<a href="https://ggplot2.tidyverse.org" class="external-link">https://ggplot2.tidyverse.org</a>.</cite>
-</p>
-<p>
-<a id="bib-wickham2011testthat"></a><a href="#cite-wickham2011testthat">[26]</a><cite>
+<a id="bib-wickham2011testthat"></a><a href="#cite-wickham2011testthat">[6]</a><cite>
 H. Wickham. “testthat: Get Started with Testing”. In: <em>The R
 Journal</em> 3 (2011), pp. 5–10. URL:
 <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" class="external-link">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>.</cite>
 </p>
 <p>
-<a id="bib-wickham2021sessioninfo"></a><a href="#cite-wickham2021sessioninfo">[27]</a><cite>
+<a id="bib-wickham2021sessioninfo"></a><a href="#cite-wickham2021sessioninfo">[7]</a><cite>
 H. Wickham, W. Chang, R. Flight, et al. <em>sessioninfo: R Session
 Information</em>. R package version 1.2.2. 2021. URL:
 <a href="https://CRAN.R-project.org/package=sessioninfo" class="external-link">https://CRAN.R-project.org/package=sessioninfo</a>.</cite>
 </p>
 <p>
-<a id="bib-wilke2020cowplot"></a><a href="#cite-wilke2020cowplot">[28]</a><cite>
-C. Wilke. <em>cowplot: Streamlined Plot Theme and Plot Annotations for
-‘ggplot2’</em>. R package version 1.1.1. 2020. URL:
-<a href="https://CRAN.R-project.org/package=cowplot" class="external-link">https://CRAN.R-project.org/package=cowplot</a>.</cite>
-</p>
-<p>
-<a id="bib-wu2021clusterprofiler"></a><a href="#cite-wu2021clusterprofiler">[29]</a><cite>
-T. Wu, E. Hu, S. Xu, et al. “clusterProfiler 4.0: A universal enrichment
-tool for interpreting omics data”. In: <em>The Innovation</em> 2.3
-(2021), p. 100141. DOI:
-<a href="https://doi.org/10.1016/j.xinn.2021.100141" class="external-link">10.1016/j.xinn.2021.100141</a>.</cite>
-</p>
-<p>
-<a id="bib-xie2023knitr"></a><a href="#cite-xie2023knitr">[30]</a><cite>
+<a id="bib-xie2023knitr"></a><a href="#cite-xie2023knitr">[8]</a><cite>
 Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report
 Generation in R</em>. R package version 1.42. 2023. URL:
 <a href="https://yihui.org/knitr/" class="external-link">https://yihui.org/knitr/</a>.</cite>
