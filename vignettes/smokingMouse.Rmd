@@ -171,7 +171,7 @@ Check [here](https://github.com/LieberInstitute/Smoking_DLPFC_Devel) to see the 
 
 ## Downloading the data with `smokingMouse`
 
-Using `r Biocpkg('smokingMouse')` `r Citep(bib[['smokingMouse']])` you can download these R objects. They are hosted by [Bioconductor](http://bioconductor.org/)'s `r Biocpkg('ExperimentHub')` `r Citep(bib[['ExperimentHub']])` resource and you can download them using `smokingMouse::fetch_data()`. `fetch_data()` is used to query `r Biocpkg('ExperimentHub')` that will download the data and cache it. 
+Using `r Biocpkg('smokingMouse')` `r Citep(bib[['smokingMouse']])` you can download these R objects. They are hosted by [Bioconductor](http://bioconductor.org/)'s `r Biocpkg('ExperimentHub')` `r Citep(bib[['ExperimentHub']])` resource.
 Below you can see how to obtain these objects.
 
 ```{r 'experiment_hub'}
@@ -180,15 +180,54 @@ ehub <- ExperimentHub::ExperimentHub()
 ```
 
 ```{r 'download_data'}
-## Download rse_gene object as example
-## Query ExperimentHub and download the data
-## rse_gene <- fetch_data("rse_gene", eh = ehub)
+
+###########      The following is just provisional code for the example.      ###########
+########### Once the package is approved and ready to access, the example will be correctly updated. ###########
+
+## Load the package
+library("smokingMouse")
+
+########################
+#      Mouse data 
+########################
+# ## Download the mouse gene data
+# rse_gene <- function_to_access
+# ## This is a RangedSummarizedExperiment object
+# rse_gene
+
+# ## Note the memory size
+# lobstr::obj_size(rse_gene)
+# 
+# ## Check sample info 
+# head(colData(rse_gene), 3)
+# ## Check gene info
+# head(rowData(rse_gene), 3)
+# ## Access the original counts
+# original_counts <- assays(rse_gene)$counts
+# ## Access the log normalized counts
+# logcounts <- assays(rse_gene)$logcounts
+
+
+
+########################
+#      Human data 
+########################
+# ## Download the human gene data
+# de_genes_prenatal_human_brain_smoking <- function_to_access
+# ## This is a data frame
+# de_genes_prenatal_human_brain_smoking
+
+# ## Note the memory size
+# lobstr::obj_size(de_genes_prenatal_human_brain_smoking)
+
+## Access data of human genes as normally do with data frames
+
 ```
 
 
 # Reproducibility
 
-The `r Biocpkg("smokingMouse")` package `r Citep(bib[["smokingMouse"]])` was made possible thanks to:
+The `r Biocpkg("smokingMouse")` package `r Citep(bib[["smokingMouse"]])` and the [smoking mouse](https://github.com/LieberInstitute/smokingMouse_Indirects) project were made possible thanks to:
 
 * R `r Citep(bib[["R"]])`
 * `r Biocpkg("BiocStyle")` `r Citep(bib[["BiocStyle"]])`

@@ -139,18 +139,32 @@ BiocManager::install("LieberInstitute/smokingMouse")
 Through the `smokingMouse` package you can access the mouse datasets of
 the project that include the raw and processed data. Below there’s code
 you can use to access the gene data but can do the same for any of the
-datasets. For more details, check the documentation for `fetch_data()`
-and `RangedSummarizedExperiment` objects.
+datasets. For more details, check the documentation for
+`RangedSummarizedExperiment` objects. You can also find code to access
+human data.
+
+``` r
+## Connect to ExperimentHub
+ehub <- ExperimentHub::ExperimentHub()
+#> snapshotDate(): 2022-10-31
+```
 
 ``` r
 
+###########      The following is just provisional code for the example.      ###########
+########### Once the package is approved and ready to access, the example will be correctly updated. ###########
+ 
 ## Load the package
 library("smokingMouse")
 
-# ## Download the gene data
-# rse_gene <- fetch_data(type = "rse_gene???")
+########################
+#      Mouse data 
+########################
+# ## Download the mouse gene data
+# rse_gene <- function_to_access
 # ## This is a RangedSummarizedExperiment object
 # rse_gene
+
 # ## Note the memory size
 # lobstr::obj_size(rse_gene)
 # 
@@ -163,7 +177,20 @@ library("smokingMouse")
 # ## Access the log normalized counts
 # logcounts <- assays(rse_gene)$logcounts
 
-## Human data can be accessed as simple data frames
+
+
+########################
+#      Human data 
+########################
+# ## Download the human gene data
+# de_genes_prenatal_human_brain_smoking <- function_to_access
+# ## This is a data frame
+# de_genes_prenatal_human_brain_smoking
+
+# ## Note the memory size
+# lobstr::obj_size(de_genes_prenatal_human_brain_smoking)
+
+## Access data of human genes as normally do with data frames
 ```
 
 ## Citation
@@ -212,9 +239,11 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>   }
 ```
 
-Please note that the `smokingMouse` was only made possible thanks to
-many other R and bioinformatics software authors, which are cited either
-in the vignettes and/or the paper(s) describing this package.
+Please note that the `smokingMouse` and the [smoking
+mouse](https://github.com/LieberInstitute/smokingMouse_Indirects)
+project were only made possible thanks to many other R and
+bioinformatics software authors, which are cited either in the vignettes
+and/or the paper(s) describing this package.
 
 ## Code of Conduct
 
