@@ -78,7 +78,7 @@ Gonzalez-Padilla</h4>
 (LIBD)<br><a class="author_email" href="mailto:#"></a><a href="mailto:daianna2121@outlook.es" class="email">daianna2121@outlook.es</a>
       </address>
                   
-            <h4 data-toc-skip class="date">24 March 2023</h4>
+            <h4 data-toc-skip class="date">25 March 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/LieberInstitute/smokingMouse/blob/HEAD/vignettes/smokingMouse.Rmd" class="external-link"><code>vignettes/smokingMouse.Rmd</code></a></small>
       <div class="hidden name"><code>smokingMouse.Rmd</code></div>
@@ -335,26 +335,62 @@ to see the data generation.</p>
 </h3>
 <p>Using <em><a href="https://bioconductor.org/packages/3.17/smokingMouse" class="external-link">smokingMouse</a></em>
 you can download these R objects. They are hosted by <a href="http://bioconductor.org/" class="external-link">Bioconductor</a>’s <em><a href="https://bioconductor.org/packages/3.17/ExperimentHub" class="external-link">ExperimentHub</a></em>
-(Morgan and Shepherd, 2023) resource and you can download them using
-<code>smokingMouse::fetch_data()</code>. <code>fetch_data()</code> is
-used to query <em><a href="https://bioconductor.org/packages/3.17/ExperimentHub" class="external-link">ExperimentHub</a></em>
-that will download the data and cache it. Below you can see how to
-obtain these objects.</p>
+(Morgan and Shepherd, 2023) resource. Below you can see how to obtain
+these objects.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Connect to ExperimentHub</span></span>
 <span><span class="va">ehub</span> <span class="op">&lt;-</span> <span class="fu">ExperimentHub</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ExperimentHub/man/ExperimentHub-class.html" class="external-link">ExperimentHub</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; snapshotDate(): 2023-03-21</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## Download rse_gene object as example</span></span>
-<span><span class="co">## Query ExperimentHub and download the data</span></span>
-<span><span class="co">## rse_gene &lt;- fetch_data("rse_gene", eh = ehub)</span></span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="co">###########      The following is just provisional code for the example.      ###########</span></span>
+<span><span class="co">########### Once the package is approved and ready to access, the example will be correctly updated. ###########</span></span>
+<span></span>
+<span><span class="co">## Load the package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/LieberInstitute/smokingMouse" class="external-link">"smokingMouse"</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co">#      Mouse data </span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co"># ## Download the mouse gene data</span></span>
+<span><span class="co"># rse_gene &lt;- function_to_access</span></span>
+<span><span class="co"># ## This is a RangedSummarizedExperiment object</span></span>
+<span><span class="co"># rse_gene</span></span>
+<span></span>
+<span><span class="co"># ## Note the memory size</span></span>
+<span><span class="co"># lobstr::obj_size(rse_gene)</span></span>
+<span><span class="co"># </span></span>
+<span><span class="co"># ## Check sample info </span></span>
+<span><span class="co"># head(colData(rse_gene), 3)</span></span>
+<span><span class="co"># ## Check gene info</span></span>
+<span><span class="co"># head(rowData(rse_gene), 3)</span></span>
+<span><span class="co"># ## Access the original counts</span></span>
+<span><span class="co"># original_counts &lt;- assays(rse_gene)$counts</span></span>
+<span><span class="co"># ## Access the log normalized counts</span></span>
+<span><span class="co"># logcounts &lt;- assays(rse_gene)$logcounts</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co">#      Human data </span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co"># ## Download the human gene data</span></span>
+<span><span class="co"># de_genes_prenatal_human_brain_smoking &lt;- function_to_access</span></span>
+<span><span class="co"># ## This is a data frame</span></span>
+<span><span class="co"># de_genes_prenatal_human_brain_smoking</span></span>
+<span></span>
+<span><span class="co"># ## Note the memory size</span></span>
+<span><span class="co"># lobstr::obj_size(de_genes_prenatal_human_brain_smoking)</span></span>
+<span></span>
+<span><span class="co">## Access data of human genes as normally do with data frames</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
 <h2 id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a>
 </h2>
 <p>The <em><a href="https://bioconductor.org/packages/3.17/smokingMouse" class="external-link">smokingMouse</a></em>
-package was made possible thanks to:</p>
+package and the <a href="https://github.com/LieberInstitute/smokingMouse_Indirects" class="external-link">smoking
+mouse</a> project were made possible thanks to:</p>
 <ul>
 <li>R (R Core Team, 2023)</li>
 <li>
@@ -412,9 +448,9 @@ Chang, and Iannone, 2023)</li>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/" class="external-link">"knitr"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html" class="external-link">knit</a></span><span class="op">(</span><span class="st">"smokingMouse.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code><span><span class="co">#&gt; [1] "2023-03-24 19:12:06 UTC"</span></span></code></pre>
+<pre><code><span><span class="co">#&gt; [1] "2023-03-25 18:15:06 UTC"</span></span></code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code><span><span class="co">#&gt; Time difference of 13.196 secs</span></span></code></pre>
+<pre><code><span><span class="co">#&gt; Time difference of 12.15 secs</span></span></code></pre>
 <p><code>R</code> session information.</p>
 <pre><code><span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
@@ -426,7 +462,7 @@ Chang, and Iannone, 2023)</li>
 <span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2023-03-24</span></span>
+<span><span class="co">#&gt;  date     2023-03-25</span></span>
 <span><span class="co">#&gt;  pandoc   2.19.2 @ /usr/local/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
@@ -535,7 +571,7 @@ Chang, and Iannone, 2023)</li>
 <span><span class="co">#&gt;  sass                     0.4.5      <span style="color: #555555;">2023-01-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.3.0)</span></span></span>
 <span><span class="co">#&gt;  sessioninfo            * 1.2.2      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.3.0)</span></span></span>
 <span><span class="co">#&gt;  shiny                    1.7.4      <span style="color: #555555;">2022-12-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  smokingMouse           * 0.99.0     <span style="color: #555555;">2023-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
+<span><span class="co">#&gt;  smokingMouse           * 0.99.0     <span style="color: #555555;">2023-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
 <span><span class="co">#&gt;  stringdist               0.9.10     <span style="color: #555555;">2022-11-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.3.0)</span></span></span>
 <span><span class="co">#&gt;  stringi                  1.7.12     <span style="color: #555555;">2023-01-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.3.0)</span></span></span>
 <span><span class="co">#&gt;  stringr                  1.5.0      <span style="color: #555555;">2022-12-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.3.0)</span></span></span>

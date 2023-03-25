@@ -146,16 +146,27 @@
 <div class="section level2">
 <h2 id="example-of-how-to-access-the-data">Example of how to access the data<a class="anchor" aria-label="anchor" href="#example-of-how-to-access-the-data"></a>
 </h2>
-<p>Through the <code>smokingMouse</code> package you can access the mouse datasets of the project that include the raw and processed data. Below there’s code you can use to access the gene data but can do the same for any of the datasets. For more details, check the documentation for <code>fetch_data()</code> and <code>RangedSummarizedExperiment</code> objects.</p>
+<p>Through the <code>smokingMouse</code> package you can access the mouse datasets of the project that include the raw and processed data. Below there’s code you can use to access the gene data but can do the same for any of the datasets. For more details, check the documentation for <code>RangedSummarizedExperiment</code> objects. You can also find code to access human data.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Connect to ExperimentHub</span></span>
+<span><span class="va">ehub</span> <span class="op">&lt;-</span> <span class="fu">ExperimentHub</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ExperimentHub/man/ExperimentHub-class.html" class="external-link">ExperimentHub</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; snapshotDate(): 2022-10-31</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
+<span><span class="co">###########      The following is just provisional code for the example.      ###########</span></span>
+<span><span class="co">########### Once the package is approved and ready to access, the example will be correctly updated. ###########</span></span>
+<span> </span>
 <span><span class="co">## Load the package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/LieberInstitute/smokingMouse" class="external-link">"smokingMouse"</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># ## Download the gene data</span></span>
-<span><span class="co"># rse_gene &lt;- fetch_data(type = "rse_gene???")</span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co">#      Mouse data </span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co"># ## Download the mouse gene data</span></span>
+<span><span class="co"># rse_gene &lt;- function_to_access</span></span>
 <span><span class="co"># ## This is a RangedSummarizedExperiment object</span></span>
 <span><span class="co"># rse_gene</span></span>
+<span></span>
 <span><span class="co"># ## Note the memory size</span></span>
 <span><span class="co"># lobstr::obj_size(rse_gene)</span></span>
 <span><span class="co"># </span></span>
@@ -168,13 +179,26 @@
 <span><span class="co"># ## Access the log normalized counts</span></span>
 <span><span class="co"># logcounts &lt;- assays(rse_gene)$logcounts</span></span>
 <span></span>
-<span><span class="co">## Human data can be accessed as simple data frames</span></span></code></pre></div>
+<span></span>
+<span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co">#      Human data </span></span>
+<span><span class="co">########################</span></span>
+<span><span class="co"># ## Download the human gene data</span></span>
+<span><span class="co"># de_genes_prenatal_human_brain_smoking &lt;- function_to_access</span></span>
+<span><span class="co"># ## This is a data frame</span></span>
+<span><span class="co"># de_genes_prenatal_human_brain_smoking</span></span>
+<span></span>
+<span><span class="co"># ## Note the memory size</span></span>
+<span><span class="co"># lobstr::obj_size(de_genes_prenatal_human_brain_smoking)</span></span>
+<span></span>
+<span><span class="co">## Access data of human genes as normally do with data frames</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>Below is the citation output from using <code>citation('smokingMouse')</code> in R. Please run this yourself to check for any updates on how to cite <strong>smokingMouse</strong>.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">'smokingMouse'</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; To cite package 'smokingMouse' in publications use:</span></span>
@@ -212,7 +236,7 @@
 <span><span class="co">#&gt;     doi = {10.1101/TODO},</span></span>
 <span><span class="co">#&gt;     url = {https://www.biorxiv.org/content/10.1101/TODO},</span></span>
 <span><span class="co">#&gt;   }</span></span></code></pre></div>
-<p>Please note that the <code>smokingMouse</code> was only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.</p>
+<p>Please note that the <code>smokingMouse</code> and the <a href="https://github.com/LieberInstitute/smokingMouse_Indirects" class="external-link">smoking mouse</a> project were only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.</p>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
