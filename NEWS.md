@@ -2,4 +2,4 @@
 
 NEW FEATURES
 
-* Provides access to smokingMouse project objects. 
+* Provides access to smokingMouse project objects. Check [here](https://github.com/LieberInstitute/smokingMouse_Indirects) for the code and data generation.
