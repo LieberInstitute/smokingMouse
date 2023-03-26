@@ -44,6 +44,9 @@ tissues. Finally, differentially expressed (DE) genes in mice were
 compared against results of a previous study on human to see how
 consistent the results were.
 
+The next table summarizes the analyses done at each level.
+<img src="man/figures/Table_of_Analyses.png" align="center" width="800px" />
+
 ## Study design
 
 36 pregnant mice and 35 not pregnant female adults were administered
@@ -53,6 +56,8 @@ the resultant 137 P0 pups and on frontal cortices (n=47) and blood
 (n=24) from the 71 adults, totaling 208 samples. Of the total pup
 samples, 19 were born to mice that were administered nicotine, 46 to
 mice exposed to smoking and the remaining 72 to control mice.
+
+<img src="man/figures/Study_design.png" align="center" width="800px" />
 
 ## smoking Mouse datasets
 
