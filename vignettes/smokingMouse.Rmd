@@ -62,10 +62,13 @@ The main goal of this study was to explore the effects of smoking and nicotine e
 As secondary objectives, this work evaluated the affected genes by each substance on adult brain in order to compare pup and adult results, and the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. 
 Finally, mice DEG were compared against results of a previous study on human to see how consistent the results were.
 
+<img src="http://research.libd.org/smokingMouse/reference/figures/Table_of_Analyses.png" align="center" width="800px" />
+
 ## Study design
-36 pregnant mice and 35 not pregnant female adults were administered nicotine (n=12), exposed to cigarette smoke (n=24) or controls (n=35) and RNA sequencing experiments were performed on frontal cortices of all the resultant 137 P0 pups and on frontal cortices (n=47) and blood (n=24) from the 71 adults, totaling 208 samples. 
+36 pregnant mice and 35 not pregnant female adults were administered nicotine (n=12), exposed to cigarette smoke (n=24) or controls (n=35) and RNA sequencing experiments were performed on frontal cortices of all the resultant 137 P0 pups and on frontal cortices (n=47) or blood (n=24) of the 71 adults, totaling 208 samples. 
 Of the total pup samples, 19 were born to mice that were administered nicotine, 46 to mice exposed to smoking and the remaining 72 to control mice.
 
+<img src="http://research.libd.org/smokingMouse/reference/figures/Study_design.png" align="center" width="800px" />
 
 # Basics
 
