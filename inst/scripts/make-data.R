@@ -217,7 +217,7 @@ metadata(rse_jx) <- list(
   "Obtained_from"="https://github.com/LieberInstitute/smokingMouse_Indirects"
 )
 
-## Add metadata to human data from Semick SA et al. (2018)
+## Add metadata to human data from Semick, S.A. et al. (2018)
 metadata(de_genes_prenatal_human_brain_smoking) <- list(
   "Downloaded_from"="https://github.com/LieberInstitute/Smoking_DLPFC_Devel",
   "Cite_this_paper"="https://www.nature.com/articles/s41380-018-0223-1"
