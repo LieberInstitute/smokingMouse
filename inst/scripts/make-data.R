@@ -1,5 +1,5 @@
 
-## This was run locally but can be run on JHPCE at (path a smokingMouse_Indirects).... ?
+## This was run locally but files can be found on JHPCE at /dcl01/lieber/ajaffe/lab/smokingMouse_Indirects
 ## See https://github.com/LieberInstitute/smokingMouse_Indirects for the analysis code of the project
 
 
