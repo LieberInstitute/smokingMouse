@@ -106,14 +106,6 @@ and Genomes; TUD: tobacco use disorder.</font>
 
 ## Study design
 
-36 pregnant mice and 35 not pregnant female adults were administered
-nicotine (n=12), exposed to cigarette smoke (n=24) or controls (n=35)
-and RNA sequencing experiments were performed on frontal cortices of all
-the resultant 137 P0 pups and on frontal cortices (n=47) or blood (n=24)
-of the 71 adults, totaling 208 samples. Of the total pup samples, 19
-were born to mice that were administered nicotine, 46 to mice exposed to
-smoking and the remaining 72 to control mice.
-
 <figure>
 <img src="man/figures/Study_design.png" align="center" width="800px" />
 <figcaption style="color: gray; line-height: 0.88; text-align: justify">
