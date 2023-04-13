@@ -48,7 +48,7 @@ The next table summarizes the analyses done at each level.
 
 <figure>
 <img src="man/figures/Table_of_Analyses.png" align="center" width="800px" />
-<figcaption style="color: gray; line-height: 0.88; text-align: justify">
+<figcaption style="color: gray; line-height: 0.94; text-align: justify">
 
 <font size="-1.5"><b>Table 1</b>: <b>1. Data preparation</b>: in this
 first step, counts of genes, exons and junctions were normalized to CPM
