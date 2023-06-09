@@ -33,7 +33,7 @@ meta <- data.frame(
   TaxonomyId = rep(c("10090", "9606"),c(4,2)),
   Coordinate_1_based = TRUE,
   DataProvider = "Lieber Institute for Brain Development (LIBD)",
-  Maintainer = "Daianna Gonzalez-Padilla <daianna2121@outlook.es>",
+  Maintainer = "Daianna Gonzalez-Padilla <glezdaianna@gmail.com>",
   RDataClass = rep(c("RangedSummarizedExperiment", "GenomicRanges"), c(4,2)),
   DispatchClass = "Rda",
   RDataPath = file.path(
