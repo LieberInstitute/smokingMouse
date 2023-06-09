@@ -1,7 +1,7 @@
 Package: smokingMouse
 Title: Provides access to smokingMouse project data 
-Version: 0.99.0
-Date: 2023-02-28
+Version: 0.99.1
+Date: 2023-06-09
 Authors@R: 
     c(
     person(given="Daianna", family="Gonzalez-Padilla", email="daianna2121@outlook.es", role = c("aut", "cre"),
@@ -12,9 +12,9 @@ Description: This is an ExperimentHub package that provides access to the data a
              They also contain relevant information of these samples and features, such as conditions, QC metrics and if they were used after filtering steps and also if the features were differently expressed in the different experiments.
 License: Artistic-2.0
 BugReports: https://support.bioconductor.org/t/smokingMouse
-Imports: 
-    ExperimentHub, AnnotationHubData
 Suggests: 
+    ExperimentHub, 
+    AnnotationHubData,
     BiocStyle,
     covr,
     ExperimentHubData,
