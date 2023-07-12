@@ -171,7 +171,16 @@ Below is the citation output from using `citation('smokingMouse')` in R. Please 
 
 ```{r 'citation', eval = requireNamespace('smokingMouse')}
 print(citation('smokingMouse'), bibtex = TRUE)
+#> 
+#> To cite the original work from which human data come please use the following citation:
+#> 
+#> Semick, S. A., Collado-Torres, L., Markunas, C. A., Shin, J. H., Deep-Soboslay, A., Tao, R., ... 
+#> & Jaffe, A. E. (2020). Developmental effects of maternal smoking during pregnancy on the human
+#>  frontal cortex transcriptome. Molecular psychiatry, 25(12), 3267-3277.
+#> 
 ```
+
+
 
 Please note that the `smokingMouse` and the [smoking mouse](https://github.com/LieberInstitute/smokingMouse_Indirects) project were only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.
 

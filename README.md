@@ -221,7 +221,6 @@ human data.
 ``` r
 ## Connect to ExperimentHub
 ehub <- ExperimentHub::ExperimentHub()
-#> snapshotDate(): 2022-10-31
 ```
 
 ``` r
@@ -276,14 +275,13 @@ Please run this yourself to check for any updates on how to cite
 
 ``` r
 print(citation('smokingMouse'), bibtex = TRUE)
-#> 
 #> To cite package 'smokingMouse' in publications use:
 #> 
 #>   Gonzalez-Padilla D, Collado-Torres L (2023). _Provides access to
 #>   smokingMouse project data _. doi:10.18129/B9.bioc.smokingMouse
 #>   <https://doi.org/10.18129/B9.bioc.smokingMouse>,
 #>   https://github.com/LieberInstitute/smokingMouse/smokingMouse - R
-#>   package version 0.99.0,
+#>   package version 0.99.5,
 #>   <http://www.bioconductor.org/packages/smokingMouse>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -293,7 +291,7 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},
 #>     year = {2023},
 #>     url = {http://www.bioconductor.org/packages/smokingMouse},
-#>     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 0.99.0},
+#>     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 0.99.5},
 #>     doi = {10.18129/B9.bioc.smokingMouse},
 #>   }
 #> 
@@ -312,6 +310,13 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>     doi = {10.1101/TODO},
 #>     url = {https://www.biorxiv.org/content/10.1101/TODO},
 #>   }
+#> 
+#> To cite the original work from which human data come please use the following citation:
+#> 
+#> Semick, S. A., Collado-Torres, L., Markunas, C. A., Shin, J. H., Deep-Soboslay, A., Tao, R., ... 
+#> & Jaffe, A. E. (2020). Developmental effects of maternal smoking during pregnancy on the human
+#>  frontal cortex transcriptome. Molecular psychiatry, 25(12), 3267-3277.
+#> 
 ```
 
 Please note that the `smokingMouse` and the [smoking
@@ -336,7 +341,7 @@ contributing to this project, you agree to abide by its terms.
   *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)* customized
   to use [Bioconductor’s docker
   containers](https://www.bioconductor.org/help/docker/) and
-  *[BiocCheck](https://bioconductor.org/packages/3.16/BiocCheck)*.
+  *[BiocCheck](https://bioconductor.org/packages/3.17/BiocCheck)*.
 - Code coverage assessment is possible thanks to
   [codecov](https://codecov.io/gh) and
   *[covr](https://CRAN.R-project.org/package=covr)*.
@@ -353,4 +358,4 @@ contributing to this project, you agree to abide by its terms.
 For more details, check the `dev` directory.
 
 This package was developed using
-*[biocthis](https://bioconductor.org/packages/3.16/biocthis)*.
+*[biocthis](https://bioconductor.org/packages/3.17/biocthis)*.
