@@ -152,8 +152,7 @@
 <p>Through the <code>smokingMouse</code> package you can access the mouse datasets of the project that include the raw and processed data. Below there’s code you can use to access the gene data but can do the same for any of the datasets. For more details, check the documentation for <code>RangedSummarizedExperiment</code> objects. You can also find code to access human data.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Connect to ExperimentHub</span></span>
-<span><span class="va">ehub</span> <span class="op">&lt;-</span> <span class="fu">ExperimentHub</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ExperimentHub/man/ExperimentHub-class.html" class="external-link">ExperimentHub</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; snapshotDate(): 2022-10-31</span></span></code></pre></div>
+<span><span class="va">ehub</span> <span class="op">&lt;-</span> <span class="fu">ExperimentHub</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ExperimentHub/man/ExperimentHub-class.html" class="external-link">ExperimentHub</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co">###########      The following is just provisional code for the example.      ###########</span></span>
@@ -203,14 +202,13 @@
 <p>Below is the citation output from using <code>citation('smokingMouse')</code> in R. Please run this yourself to check for any updates on how to cite <strong>smokingMouse</strong>.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">'smokingMouse'</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; To cite package 'smokingMouse' in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Gonzalez-Padilla D, Collado-Torres L (2023). _Provides access to</span></span>
 <span><span class="co">#&gt;   smokingMouse project data _. doi:10.18129/B9.bioc.smokingMouse</span></span>
 <span><span class="co">#&gt;   &lt;https://doi.org/10.18129/B9.bioc.smokingMouse&gt;,</span></span>
 <span><span class="co">#&gt;   https://github.com/LieberInstitute/smokingMouse/smokingMouse - R</span></span>
-<span><span class="co">#&gt;   package version 0.99.0,</span></span>
+<span><span class="co">#&gt;   package version 0.99.5,</span></span>
 <span><span class="co">#&gt;   &lt;http://www.bioconductor.org/packages/smokingMouse&gt;.</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
@@ -220,7 +218,7 @@
 <span><span class="co">#&gt;     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},</span></span>
 <span><span class="co">#&gt;     year = {2023},</span></span>
 <span><span class="co">#&gt;     url = {http://www.bioconductor.org/packages/smokingMouse},</span></span>
-<span><span class="co">#&gt;     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 0.99.0},</span></span>
+<span><span class="co">#&gt;     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 0.99.5},</span></span>
 <span><span class="co">#&gt;     doi = {10.18129/B9.bioc.smokingMouse},</span></span>
 <span><span class="co">#&gt;   }</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -238,7 +236,14 @@
 <span><span class="co">#&gt;     journal = {bioRxiv},</span></span>
 <span><span class="co">#&gt;     doi = {10.1101/TODO},</span></span>
 <span><span class="co">#&gt;     url = {https://www.biorxiv.org/content/10.1101/TODO},</span></span>
-<span><span class="co">#&gt;   }</span></span></code></pre></div>
+<span><span class="co">#&gt;   }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; To cite the original work from which human data come please use the following citation:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Semick, S. A., Collado-Torres, L., Markunas, C. A., Shin, J. H., Deep-Soboslay, A., Tao, R., ... </span></span>
+<span><span class="co">#&gt; &amp; Jaffe, A. E. (2020). Developmental effects of maternal smoking during pregnancy on the human</span></span>
+<span><span class="co">#&gt;  frontal cortex transcriptome. Molecular psychiatry, 25(12), 3267-3277.</span></span>
+<span><span class="co">#&gt; </span></span></code></pre></div>
 <p>Please note that the <code>smokingMouse</code> and the <a href="https://github.com/LieberInstitute/smokingMouse_Indirects" class="external-link">smoking mouse</a> project were only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.</p>
 </div>
 <div class="section level2">
@@ -250,14 +255,14 @@
 <h2 id="development-tools">Development tools<a class="anchor" aria-label="anchor" href="#development-tools"></a>
 </h2>
 <ul>
-<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.16/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
+<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.17/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
 <li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh" class="external-link">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em>.</li>
 <li>The <a href="http://LieberInstitute.github.io/smokingMouse" class="external-link">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>.</li>
 <li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em>.</li>
 <li>The documentation is formatted thanks to <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em> and <em><a href="https://CRAN.R-project.org/package=roxygen2" class="external-link">roxygen2</a></em>.</li>
 </ul>
 <p>For more details, check the <code>dev</code> directory.</p>
-<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.16/biocthis" class="external-link">biocthis</a></em>.</p>
+<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>.</p>
 </div>
 </div>
   </div>
