@@ -40,7 +40,6 @@ bib <- c(
     R = citation(),
     AnnotationHubData = citation("AnnotationHubData")[1],
     ExperimentHub = citation("ExperimentHub")[1],
-    ExperimentHubData = citation("ExperimentHubData")[1],
     BiocStyle = citation("BiocStyle")[1],
     knitr = citation("knitr")[1],
     RefManageR = citation("RefManageR")[1],
@@ -277,19 +276,6 @@ The `r Biocpkg("smokingMouse")` package `r Citep(bib[["smokingMouse"]])` and the
 * `r Biocpkg('rtracklayer')` `r Citep(bib[['rtracklayer']])`
 
 This package was developed using `r BiocStyle::Biocpkg("biocthis")`.
-
-
-Code for creating the vignette
-
-```{r createVignette, eval=FALSE}
-## Create the vignette
-library("rmarkdown")
-system.time(render("smokingMouse.Rmd", "BiocStyle::html_document"))
-
-## Extract the R code
-library("knitr")
-knit("smokingMouse.Rmd", tangle = TRUE)
-```
 
 Date the vignette was generated.
 
