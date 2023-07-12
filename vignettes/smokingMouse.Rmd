@@ -50,11 +50,15 @@ bib <- c(
 )
 ```
 
-# Welcome
+# Introduction
 
 Welcome to the `smokingMouse` project.
 In this vignette we'll show you how to access the smokingMouse LIBD datasets `r Citep(bib[['smokingMouse']])`.
 You can find the analysis code and the data generation in [here](https://github.com/LieberInstitute/smokingMouse_Indirects).
+
+## Motivation 
+The main motivation to create this bioconductor package was to provide public and free access to all RNA-seq datasets that were generated for the smokingMouse project, containing many variables of interest that make it possible to answer a wide range of biological questions related to smoking and nicotine effects in mice. 
+
 
 ## Overview
 This bulk RNA-sequencing project consisted of a differential expression analysis (DEA) involving 4 data types: genes, exons, transcripts and junctions. The main goal of this study was to explore the effects of prenatal exposure to maternal smoking and nicotine exposures on the developing mouse brain. As secondary objectives, this work evaluated: 1) the affected genes by each exposure on the adult female brain in order to compare offspring and adult results and 2) the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. Finally, DEGs identified in mice were compared against previously published results from  a human study (Semick, S.A. et al. (2018)). 
