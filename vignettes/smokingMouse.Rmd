@@ -211,6 +211,8 @@ library("SummarizedExperiment")
 ######################
 #     Mouse data 
 ######################
+myfiles["EH8313"]
+
 ## Download the mouse gene data
 #  EH8313 | rse_gene_mouse_RNAseq_nic-smo
 rse_gene <- myfiles[["EH8313"]]
@@ -240,6 +242,8 @@ assays(rse_gene)$logcounts[1:3, 1:3]
 ######################
 #     Human data 
 ######################
+myfiles["EH8318"]
+
 ## Download the human gene data
 # EH8318 | de_genes_adult_human_brain_smoking
 de_genes_prenatal_human_brain_smoking <- myfiles[["EH8318"]]
