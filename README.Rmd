@@ -116,49 +116,40 @@ You can also find code to access human data.
 
 ```{r 'experiment_hub'}
 ## Connect to ExperimentHub
-ehub <- ExperimentHub::ExperimentHub()
+library(ExperimentHub)
+eh <- ExperimentHub::ExperimentHub()
 ```
 
 ```{r 'access_data', message=FALSE, fig.height = 8, fig.width = 9}
-
-###########      The following is just provisional code for the example.      ###########
-########### Once the package is approved and ready to access, the example will be correctly updated. ###########
  
-## Load the package
-library("smokingMouse")
-
+## Load the datasets of the package
+# myfiles <- query(eh, "smokingMouse")
+  
 ########################
 #      Mouse data 
 ########################
-# ## Download the mouse gene data
-# rse_gene <- function_to_access
-# ## This is a RangedSummarizedExperiment object
-# rse_gene
+## Download the mouse gene data
+#rse_gene <- myfiles[['rse_gene_mouse_RNAseq_nic-smo.Rdata']] 
+## This is a RangedSummarizedExperiment object
+#rse_gene
 
-# ## Note the memory size
-# lobstr::obj_size(rse_gene)
-# 
-# ## Check sample info 
-# head(colData(rse_gene), 3)
-# ## Check gene info
-# head(rowData(rse_gene), 3)
-# ## Access the original counts
-# original_counts <- assays(rse_gene)$counts
-# ## Access the log normalized counts
-# logcounts <- assays(rse_gene)$logcounts
-
+## Check sample info 
+#colData(rse_gene)[1:5, 1:5]
+## Check gene info
+#rowData(rse_gene)[1:5, 1:5]
+## Access the original counts
+#original_counts <- assays(rse_gene)$counts
+## Access the log normalized counts
+#logcounts <- assays(rse_gene)$logcounts
 
 
 ########################
 #      Human data 
 ########################
-# ## Download the human gene data
-# de_genes_prenatal_human_brain_smoking <- function_to_access
-# ## This is a data frame
-# de_genes_prenatal_human_brain_smoking
-
-# ## Note the memory size
-# lobstr::obj_size(de_genes_prenatal_human_brain_smoking)
+## Download the human gene data
+#de_genes_prenatal_human_brain_smoking <- myfiles[['de_genes_prenatal_human_brain_smoking.Rdata']]
+## This is a data frame
+#de_genes_prenatal_human_brain_smoking[1:5, ]
 
 ## Access data of human genes as normally do with data frames
 

@@ -65,32 +65,32 @@ with analyses of explanatory variables and variance partition. <b>3.
 Differential Expression Analysis</b>: with the relevant variables
 identified in the previous steps, the DEA was performed at the gene
 level for nicotine and smoking, adult and pup, and blood and brain
-samples, and for 3 models: the naive one modeled <span
-style="font-family: monospace">\~Group + batch effects</span>, the
-adjusted model modeled <span style="font-family: monospace">\~Group +
-Pregnancy + batch effects</span> for adults and <span
-style="font-family: monospace">\~Group + Sex + batch effects</span> for
-pups, and the interaction model <span
-style="font-family: monospace">\~Group\*Pregnancy + batch effects</span>
-for adults and <span style="font-family: monospace">\~Group\*Sex + batch
-effects</span> for pups; DEA on the rest of the levels was performed for
-pups only and using the adjusted model. After that, signals of the
-features in nicotine and smoking were compared, as well as the signals
-of exons and txs vs the effects of their genes, and genes’ signals were
-additionally compared in the different tissues, ages, models and species
-(vs human data of a previous study). All resultant DEG and DE features
-(and their genes) were quantified and compared based on their experiment
-(nic/smo) and direction of regulation (up/down); DEG were further
-compared against genes of DE exons and txs; mouse genes were also
-compared with human genes affected by cigarette smoke or associated with
-TUD. <b>4. Gene Ontology and KEGG</b>: taking the DEG and the genes of
-DE txs and exons, GO & KEGG analyses were done and the expression levels
-of genes that participate in brain development related processes were
-explored. <b>5. DE feature visualization</b>: DEG counts were
-represented in heatmaps in order to distinguish the groups of up and
-down-regulated genes. <b>6. Junction annotation</b>: for novel DE jxns
-of unknown gene, their nearest, preceding and following genes were
-determined.</font>
+samples, and for 3 models: the naive one modeled
+<span style="font-family: monospace">~Group + batch effects</span>, the
+adjusted model modeled <span style="font-family: monospace">~Group +
+Pregnancy + batch effects</span> for adults and
+<span style="font-family: monospace">~Group + Sex + batch effects</span>
+for pups, and the interaction model
+<span style="font-family: monospace">~Group\*Pregnancy + batch
+effects</span> for adults and
+<span style="font-family: monospace">~Group\*Sex + batch effects</span>
+for pups; DEA on the rest of the levels was performed for pups only and
+using the adjusted model. After that, signals of the features in
+nicotine and smoking were compared, as well as the signals of exons and
+txs vs the effects of their genes, and genes’ signals were additionally
+compared in the different tissues, ages, models and species (vs human
+data of a previous study). All resultant DEG and DE features (and their
+genes) were quantified and compared based on their experiment (nic/smo)
+and direction of regulation (up/down); DEG were further compared against
+genes of DE exons and txs; mouse genes were also compared with human
+genes affected by cigarette smoke or associated with TUD. <b>4. Gene
+Ontology and KEGG</b>: taking the DEG and the genes of DE txs and exons,
+GO & KEGG analyses were done and the expression levels of genes that
+participate in brain development related processes were explored. <b>5.
+DE feature visualization</b>: DEG counts were represented in heatmaps in
+order to distinguish the groups of up and down-regulated genes. <b>6.
+Junction annotation</b>: for novel DE jxns of unknown gene, their
+nearest, preceding and following genes were determined.</font>
 
 <font size="0.8">Abbreviations: Jxn: junction; Tx: transcript; CPM:
 counts per million; TPM: transcripts per million; TMM: Trimmed Mean of
@@ -220,49 +220,62 @@ human data.
 
 ``` r
 ## Connect to ExperimentHub
-ehub <- ExperimentHub::ExperimentHub()
+library(ExperimentHub)
+#> Warning: package 'ExperimentHub' was built under R version 4.3.1
+#> Loading required package: BiocGenerics
+#> 
+#> Attaching package: 'BiocGenerics'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     IQR, mad, sd, var, xtabs
+#> The following objects are masked from 'package:base':
+#> 
+#>     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+#>     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+#>     get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+#>     match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+#>     Position, rank, rbind, Reduce, rownames, sapply, setdiff, sort,
+#>     table, tapply, union, unique, unsplit, which.max, which.min
+#> Loading required package: AnnotationHub
+#> Loading required package: BiocFileCache
+#> Warning: package 'BiocFileCache' was built under R version 4.3.1
+#> Loading required package: dbplyr
+eh <- ExperimentHub::ExperimentHub()
+#> Cannot connect to ExperimentHub server, using 'localHub=TRUE' instead
+#> Using 'localHub=TRUE'
+#>   If offline, please also see BiocManager vignette section on offline use
 ```
 
 ``` r
-
-###########      The following is just provisional code for the example.      ###########
-########### Once the package is approved and ready to access, the example will be correctly updated. ###########
  
-## Load the package
-library("smokingMouse")
-
+## Load the datasets of the package
+# myfiles <- query(eh, "smokingMouse")
+  
 ########################
 #      Mouse data 
 ########################
-# ## Download the mouse gene data
-# rse_gene <- function_to_access
-# ## This is a RangedSummarizedExperiment object
-# rse_gene
+## Download the mouse gene data
+#rse_gene <- myfiles[['rse_gene_mouse_RNAseq_nic-smo.Rdata']] 
+## This is a RangedSummarizedExperiment object
+#rse_gene
 
-# ## Note the memory size
-# lobstr::obj_size(rse_gene)
-# 
-# ## Check sample info 
-# head(colData(rse_gene), 3)
-# ## Check gene info
-# head(rowData(rse_gene), 3)
-# ## Access the original counts
-# original_counts <- assays(rse_gene)$counts
-# ## Access the log normalized counts
-# logcounts <- assays(rse_gene)$logcounts
-
+## Check sample info 
+#colData(rse_gene)[1:5, 1:5]
+## Check gene info
+#rowData(rse_gene)[1:5, 1:5]
+## Access the original counts
+#original_counts <- assays(rse_gene)$counts
+## Access the log normalized counts
+#logcounts <- assays(rse_gene)$logcounts
 
 
 ########################
 #      Human data 
 ########################
-# ## Download the human gene data
-# de_genes_prenatal_human_brain_smoking <- function_to_access
-# ## This is a data frame
-# de_genes_prenatal_human_brain_smoking
-
-# ## Note the memory size
-# lobstr::obj_size(de_genes_prenatal_human_brain_smoking)
+## Download the human gene data
+#de_genes_prenatal_human_brain_smoking <- myfiles[['de_genes_prenatal_human_brain_smoking.Rdata']]
+## This is a data frame
+#de_genes_prenatal_human_brain_smoking[1:5, ]
 
 ## Access data of human genes as normally do with data frames
 ```
@@ -341,7 +354,7 @@ contributing to this project, you agree to abide by its terms.
   *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)* customized
   to use [Bioconductor’s docker
   containers](https://www.bioconductor.org/help/docker/) and
-  *[BiocCheck](https://bioconductor.org/packages/3.17/BiocCheck)*.
+  *[BiocCheck](https://bioconductor.org/packages/3.18/BiocCheck)*.
 - Code coverage assessment is possible thanks to
   [codecov](https://codecov.io/gh) and
   *[covr](https://CRAN.R-project.org/package=covr)*.
@@ -358,4 +371,4 @@ contributing to this project, you agree to abide by its terms.
 For more details, check the `dev` directory.
 
 This package was developed using
-*[biocthis](https://bioconductor.org/packages/3.17/biocthis)*.
+*[biocthis](https://bioconductor.org/packages/3.18/biocthis)*.
