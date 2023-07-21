@@ -191,53 +191,71 @@ Using `r Biocpkg('smokingMouse')` `r Citep(bib[['smokingMouse']])` you can downl
 Below you can see how to obtain these objects.
 
 ```{r 'experiment_hub'}
+## Load ExperimentHub for downloading the data
+library("ExperimentHub")
+
 ## Connect to ExperimentHub
 ehub <- ExperimentHub::ExperimentHub()
+
+## Load the datasets of the package
+myfiles <- query(ehub, "smokingMouse")
+
+## Resulting smokingMouse files from our ExperimentHub query
+myfiles
 ```
 
 ```{r 'download_data'}
+## Load SummarizedExperiment which contains the data
+library("SummarizedExperiment")
 
-###########      The following is just provisional code for the example.      ###########
-########### Once the package is approved and ready to access, the example will be correctly updated. ###########
+######################
+#     Mouse data 
+######################
+## Download the mouse gene data
+#  EH8313 | rse_gene_mouse_RNAseq_nic-smo
+rse_gene <- myfiles[["EH8313"]]
 
-## Load the package
-library("smokingMouse")
+## This is a RangedSummarizedExperiment object
+rse_gene
 
-########################
-#      Mouse data 
-########################
-# ## Download the mouse gene data
-# rse_gene <- function_to_access
-# ## This is a RangedSummarizedExperiment object
-# rse_gene
-
-# ## Note the memory size
+## Optionally check the memory size
 # lobstr::obj_size(rse_gene)
-# 
-# ## Check sample info 
-# head(colData(rse_gene), 3)
-# ## Check gene info
-# head(rowData(rse_gene), 3)
-# ## Access the original counts
-# original_counts <- assays(rse_gene)$counts
-# ## Access the log normalized counts
-# logcounts <- assays(rse_gene)$logcounts
+# 159.68 MB
+
+## Check sample info 
+head(colData(rse_gene), 3)
+
+## Check gene info
+head(rowData(rse_gene), 3)
+
+## Access the original counts
+class(assays(rse_gene)$counts)
+
+## Access the log normalized counts
+class(assays(rse_gene)$logcounts)
+dim(assays(rse_gene)$logcounts)
+assays(rse_gene)$logcounts[1:3, 1:3]
 
 
+######################
+#     Human data 
+######################
+## Download the human gene data
+# EH8318 | de_genes_adult_human_brain_smoking
+de_genes_prenatal_human_brain_smoking <- myfiles[["EH8318"]]
 
-########################
-#      Human data 
-########################
-# ## Download the human gene data
-# de_genes_prenatal_human_brain_smoking <- function_to_access
-# ## This is a data frame
-# de_genes_prenatal_human_brain_smoking
+## This is a GRanges object
+class(de_genes_prenatal_human_brain_smoking)
+de_genes_prenatal_human_brain_smoking
 
-# ## Note the memory size
+## Optionally check the memory size
 # lobstr::obj_size(de_genes_prenatal_human_brain_smoking)
+# 3.73 MB
 
-## Access data of human genes as normally do with data frames
-
+## Access data of human genes as normally do with other GenomicRanges::GRanges()
+## objects or re-cast it as a data.frame
+de_genes_df <- as.data.frame(de_genes_prenatal_human_brain_smoking)
+head(de_genes_df)
 ```
 
 
