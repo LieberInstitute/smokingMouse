@@ -179,33 +179,33 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span> </span>
 <span><span class="co">## Load the datasets of the package</span></span>
-<span><span class="co"># myfiles &lt;- query(eh, "smokingMouse")</span></span>
+<span><span class="va">myfiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html" class="external-link">query</a></span><span class="op">(</span><span class="va">eh</span>, <span class="st">"smokingMouse"</span><span class="op">)</span></span>
 <span>  </span>
 <span><span class="co">########################</span></span>
 <span><span class="co">#      Mouse data </span></span>
 <span><span class="co">########################</span></span>
 <span><span class="co">## Download the mouse gene data</span></span>
-<span><span class="co">#rse_gene &lt;- myfiles[['rse_gene_mouse_RNAseq_nic-smo.Rdata']] </span></span>
+<span><span class="va">rse_gene</span> <span class="op">&lt;-</span> <span class="va">myfiles</span><span class="op">[[</span><span class="st">'rse_gene_mouse_RNAseq_nic-smo.Rdata'</span><span class="op">]</span><span class="op">]</span> </span>
 <span><span class="co">## This is a RangedSummarizedExperiment object</span></span>
-<span><span class="co">#rse_gene</span></span>
+<span><span class="va">rse_gene</span></span>
 <span></span>
 <span><span class="co">## Check sample info </span></span>
-<span><span class="co">#colData(rse_gene)[1:5, 1:5]</span></span>
+<span><span class="fu">colData</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">## Check gene info</span></span>
-<span><span class="co">#rowData(rse_gene)[1:5, 1:5]</span></span>
+<span><span class="fu">rowData</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">## Access the original counts</span></span>
-<span><span class="co">#original_counts &lt;- assays(rse_gene)$counts</span></span>
+<span><span class="va">original_counts</span> <span class="op">&lt;-</span> <span class="fu">assays</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">$</span><span class="va">counts</span></span>
 <span><span class="co">## Access the log normalized counts</span></span>
-<span><span class="co">#logcounts &lt;- assays(rse_gene)$logcounts</span></span>
+<span><span class="va">logcounts</span> <span class="op">&lt;-</span> <span class="fu">assays</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">$</span><span class="va">logcounts</span></span>
 <span></span>
 <span></span>
 <span><span class="co">########################</span></span>
 <span><span class="co">#      Human data </span></span>
 <span><span class="co">########################</span></span>
 <span><span class="co">## Download the human gene data</span></span>
-<span><span class="co">#de_genes_prenatal_human_brain_smoking &lt;- myfiles[['de_genes_prenatal_human_brain_smoking.Rdata']]</span></span>
+<span><span class="va">de_genes_prenatal_human_brain_smoking</span> <span class="op">&lt;-</span> <span class="va">myfiles</span><span class="op">[[</span><span class="st">'de_genes_prenatal_human_brain_smoking.Rdata'</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="co">## This is a data frame</span></span>
-<span><span class="co">#de_genes_prenatal_human_brain_smoking[1:5, ]</span></span>
+<span><span class="va">de_genes_prenatal_human_brain_smoking</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="op">]</span></span>
 <span></span>
 <span><span class="co">## Access data of human genes as normally do with data frames</span></span></code></pre></div>
 </div>
