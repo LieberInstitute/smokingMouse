@@ -1,7 +1,7 @@
 Package: smokingMouse
 Title: Provides access to smokingMouse project data 
-Version: 0.99.7
-Date: 2023-06-21
+Version: 0.99.8
+Date: 2023-07-21
 Authors@R: 
     c(
     person(given="Daianna", family="Gonzalez-Padilla", email="glezdaianna@gmail.com", role = c("aut", "cre"),
