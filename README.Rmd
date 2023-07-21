@@ -123,33 +123,33 @@ eh <- ExperimentHub::ExperimentHub()
 ```{r 'access_data', message=FALSE, fig.height = 8, fig.width = 9}
  
 ## Load the datasets of the package
-# myfiles <- query(eh, "smokingMouse")
+myfiles <- query(eh, "smokingMouse")
   
 ########################
 #      Mouse data 
 ########################
 ## Download the mouse gene data
-#rse_gene <- myfiles[['rse_gene_mouse_RNAseq_nic-smo.Rdata']] 
+rse_gene <- myfiles[['rse_gene_mouse_RNAseq_nic-smo.Rdata']] 
 ## This is a RangedSummarizedExperiment object
-#rse_gene
+rse_gene
 
 ## Check sample info 
-#colData(rse_gene)[1:5, 1:5]
+colData(rse_gene)[1:5, 1:5]
 ## Check gene info
-#rowData(rse_gene)[1:5, 1:5]
+rowData(rse_gene)[1:5, 1:5]
 ## Access the original counts
-#original_counts <- assays(rse_gene)$counts
+original_counts <- assays(rse_gene)$counts
 ## Access the log normalized counts
-#logcounts <- assays(rse_gene)$logcounts
+logcounts <- assays(rse_gene)$logcounts
 
 
 ########################
 #      Human data 
 ########################
 ## Download the human gene data
-#de_genes_prenatal_human_brain_smoking <- myfiles[['de_genes_prenatal_human_brain_smoking.Rdata']]
+de_genes_prenatal_human_brain_smoking <- myfiles[['de_genes_prenatal_human_brain_smoking.Rdata']]
 ## This is a data frame
-#de_genes_prenatal_human_brain_smoking[1:5, ]
+de_genes_prenatal_human_brain_smoking[1:5, ]
 
 ## Access data of human genes as normally do with data frames
 
