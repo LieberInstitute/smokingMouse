@@ -205,7 +205,7 @@ myfiles
 ```
 
 ```{r 'download_data'}
-## Load SummarizedExperiment which contains the data
+## Load SummarizedExperiment which defines the class container for the data
 library("SummarizedExperiment")
 
 ######################
