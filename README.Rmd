@@ -129,7 +129,7 @@ myfiles <- query(eh, "smokingMouse")
 #      Mouse data 
 ########################
 ## Download the mouse gene data
-rse_gene <- myfiles[['rse_gene_mouse_RNAseq_nic-smo.Rdata']] 
+rse_gene <- myfiles[['rse_gene_mouse_RNAseq_nic-smo']] 
 ## This is a RangedSummarizedExperiment object
 rse_gene
 
@@ -147,7 +147,7 @@ logcounts <- assays(rse_gene)$logcounts
 #      Human data 
 ########################
 ## Download the human gene data
-de_genes_prenatal_human_brain_smoking <- myfiles[['de_genes_prenatal_human_brain_smoking.Rdata']]
+de_genes_prenatal_human_brain_smoking <- myfiles[['de_genes_prenatal_human_brain_smoking']]
 ## This is a data frame
 de_genes_prenatal_human_brain_smoking[1:5, ]
 
