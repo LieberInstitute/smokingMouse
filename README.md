@@ -23,7 +23,7 @@ support](https://bioconductor.org/shields/posts/smokingMouse.svg)](https://suppo
 commit](https://bioconductor.org/shields/lastcommit/devel/data-experiment/smokingMouse.svg)](http://bioconductor.org/checkResults/devel/data-experiment-LATEST/smokingMouse/)
 [![Bioc
 dependencies](https://bioconductor.org/shields/dependencies/release/smokingMouse.svg)](https://bioconductor.org/packages/release/bioc/html/smokingMouse.html#since)
-[![R-CMD-check-bioc](https://github.com/LieberInstitute/smokingMouse/actions/workflows/R-CMD-check-bioc.yaml/badge.svg)](https://github.com/LieberInstitute/smokingMouse/actions/workflows/R-CMD-check-bioc.yaml)
+[![check-bioc](https://github.com/LieberInstitute/smokingMouse/actions/workflows/check-bioc.yaml/badge.svg)](https://github.com/LieberInstitute/smokingMouse/actions/workflows/check-bioc.yaml)
 
 <!-- badges: end -->
 
