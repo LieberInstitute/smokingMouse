@@ -27,23 +27,23 @@ dependencies](https://bioconductor.org/shields/dependencies/release/smokingMouse
 
 <!-- badges: end -->
 
-Welcome to the `smokingMouse` project! Here you are able to access the
-mouse and human datasets used for the analysis of the smoking mouse LIBD
-project.
+Welcome to the `smokingMouse` project! Here you’ll be able to access the
+mouse expression data used for the analysis of the
+smoking-nicotine-mouse LIBD project.
 
 ## Overview
 
 This bulk RNA-sequencing project consisted of a differential expression
 analysis (DEA) involving 4 data types: genes, exons, transcripts and
-junctions. The main goal of this study was to explore the effects of
-prenatal exposure to maternal smoking and nicotine exposures on the
-developing mouse brain. As secondary objectives, this work evaluated: 1)
-the affected genes by each exposure on the adult female brain in order
-to compare offspring and adult results and 2) the effects of smoking on
-adult blood and brain to search for overlapping biomarkers in both
-tissues. Finally, DEGs identified in mice were compared against
-previously published results from a human study (Semick, S.A. et
-al. (2018)).
+exon-exon junctions. The main goal of this study was to explore the
+effects of prenatal exposure to maternal smoking and nicotine exposures
+on the developing mouse brain. As secondary objectives, this work
+evaluated: 1) the affected genes by each exposure on the adult female
+brain in order to compare offspring and adult results and 2) the effects
+of smoking on adult blood and brain to search for overlapping biomarkers
+in both tissues. Finally, DEGs identified in mice were compared against
+previously published results in human (Semick, S.A. et al. (2018) and
+Toikumo, S. et al. (2023)).
 
 The next table summarizes the analyses done at each level.
 
@@ -51,18 +51,22 @@ The next table summarizes the analyses done at each level.
 <img src="man/figures/Table_of_Analyses.png" align="center" width="800px" />
 <figcaption style="color: gray; line-height: 0.94; text-align: justify">
 
-<font size="-1.5"><b>Table 1</b>: <b>1. Data preparation</b>: in this
-first step, counts of genes, exons and junctions were normalized to CPM
-and scaled; transcript expression values were only scaled since they
-were already in TMP. Then, low-expression features were removed using
-the indicated methods and samples were separated by tissue and age in
-order to create subsets of the data for downstream analyses. <b>2.
-Exploratory Data Analysis</b>: QC metrics of the samples were examined
-and used to filter them; sample level effects were explored through
-dimensionality reduction methods and rare samples in PCA plots were
-manually removed from the datasets; gene level effects were evaluated
-with analyses of explanatory variables and variance partition. <b>3.
-Differential Expression Analysis</b>: with the relevant variables
+<font size="-1.5"><b> Summary of analysis steps across gene expression
+feature levels </b>:
+
+<b>1. Data preparation</b>: in this first step, counts of genes, exons
+and junctions were normalized to CPM and scaled; transcript expression
+values were only scaled since they were already in TMP. Then,
+low-expression features were removed using the indicated methods and
+samples were separated by tissue and age in order to create subsets of
+the data for downstream analyses.
+
+<b>2. Exploratory Data Analysis</b>: QC metrics of the samples were
+examined and used to filter them; sample level effects were explored
+through dimensionality reduction methods and rare samples in PCA plots
+were manually removed from the datasets; gene level effects were
+evaluated with analyses of explanatory variables and variance partition.
+<b>3. Differential Expression Analysis</b>: with the relevant variables
 identified in the previous steps, the DEA was performed at the gene
 level for nicotine and smoking, adult and pup, and blood and brain
 samples, and for 3 models: the naive one modeled
@@ -223,6 +227,7 @@ human data.
 library(ExperimentHub)
 #> Warning: package 'ExperimentHub' was built under R version 4.3.1
 #> Loading required package: BiocGenerics
+#> Warning: package 'BiocGenerics' was built under R version 4.3.1
 #> 
 #> Attaching package: 'BiocGenerics'
 #> The following objects are masked from 'package:stats':
@@ -241,9 +246,6 @@ library(ExperimentHub)
 #> Warning: package 'BiocFileCache' was built under R version 4.3.1
 #> Loading required package: dbplyr
 eh <- ExperimentHub::ExperimentHub()
-#> Cannot connect to ExperimentHub server, using 'localHub=TRUE' instead
-#> Using 'localHub=TRUE'
-#>   If offline, please also see BiocManager vignette section on offline use
 ```
 
 ``` r
@@ -256,13 +258,52 @@ myfiles <- query(eh, "smokingMouse")
 ########################
 ## Download the mouse gene data
 rse_gene <- myfiles[['EH8313']] 
+#> Warning: package 'GenomicRanges' was built under R version 4.3.1
+#> Warning: package 'S4Vectors' was built under R version 4.3.2
+#> Warning: package 'IRanges' was built under R version 4.3.1
+#> Warning: package 'GenomeInfoDb' was built under R version 4.3.1
 ## This is a RangedSummarizedExperiment object
 rse_gene
+#> class: RangedSummarizedExperiment 
+#> dim: 55401 208 
+#> metadata(1): Obtained_from
+#> assays(2): counts logcounts
+#> rownames(55401): ENSMUSG00000102693.1 ENSMUSG00000064842.1 ...
+#>   ENSMUSG00000064371.1 ENSMUSG00000064372.1
+#> rowData names(13): Length gencodeID ... DE_in_pup_brain_nicotine
+#>   DE_in_pup_brain_smoking
+#> colnames: NULL
+#> colData names(71): SAMPLE_ID FQCbasicStats ...
+#>   retained_after_QC_sample_filtering
+#>   retained_after_manual_sample_filtering
 
 ## Check sample info 
 colData(rse_gene)[1:5, 1:5]
+#> DataFrame with 5 rows and 5 columns
+#>     SAMPLE_ID FQCbasicStats perBaseQual perTileQual  perSeqQual
+#>   <character>   <character> <character> <character> <character>
+#> 1 Sample_2914          PASS        PASS        PASS        PASS
+#> 2 Sample_4042          PASS        PASS        PASS        PASS
+#> 3 Sample_4043          PASS        PASS        PASS        PASS
+#> 4 Sample_4044          PASS        PASS        PASS        PASS
+#> 5 Sample_4045          PASS        PASS        PASS        PASS
 ## Check gene info
 rowData(rse_gene)[1:5, 1:5]
+#> DataFrame with 5 rows and 5 columns
+#>                         Length            gencodeID          ensemblID
+#>                      <integer>          <character>        <character>
+#> ENSMUSG00000102693.1      1070 ENSMUSG00000102693.1 ENSMUSG00000102693
+#> ENSMUSG00000064842.1       110 ENSMUSG00000064842.1 ENSMUSG00000064842
+#> ENSMUSG00000051951.5      6094 ENSMUSG00000051951.5 ENSMUSG00000051951
+#> ENSMUSG00000102851.1       480 ENSMUSG00000102851.1 ENSMUSG00000102851
+#> ENSMUSG00000103377.1      2819 ENSMUSG00000103377.1 ENSMUSG00000103377
+#>                                 gene_type    EntrezID
+#>                               <character> <character>
+#> ENSMUSG00000102693.1                  TEC       71042
+#> ENSMUSG00000064842.1                snRNA          NA
+#> ENSMUSG00000051951.5       protein_coding      497097
+#> ENSMUSG00000102851.1 processed_pseudogene   100418032
+#> ENSMUSG00000103377.1                  TEC          NA
 ## Access the original counts
 original_counts <- assays(rse_gene)$counts
 ## Access the log normalized counts
@@ -276,6 +317,30 @@ logcounts <- assays(rse_gene)$logcounts
 de_genes_prenatal_human_brain_smoking <- myfiles[['EH8317']]
 ## This is a data frame
 de_genes_prenatal_human_brain_smoking[1:5, ]
+#> GRanges object with 5 ranges and 9 metadata columns:
+#>                   seqnames              ranges strand |    Length      Symbol
+#>                      <Rle>           <IRanges>  <Rle> | <integer> <character>
+#>   ENSG00000080709     chr5 113696642-113832337      + |      3995       KCNN2
+#>   ENSG00000070886     chr1   22890057-22930087      + |      5358       EPHA8
+#>   ENSG00000218336     chr4 183065140-183724177      + |     11983       TENM3
+#>   ENSG00000189108     chrX 103810996-105011822      + |      3146    IL1RAPL2
+#>   ENSG00000186732    chr22   43807202-43903728      + |      5821      MPPED1
+#>                    EntrezID     logFC   AveExpr         t     P.Value adj.P.Val
+#>                   <integer> <numeric> <numeric> <numeric>   <numeric> <numeric>
+#>   ENSG00000080709      3781 -0.694069   2.86444  -6.09779 2.59861e-06 0.0469491
+#>   ENSG00000070886      2046  1.545861   1.58351   5.67106 7.49034e-06 0.0477263
+#>   ENSG00000218336     55714  0.804367   6.31125   5.55661 9.97733e-06 0.0477263
+#>   ENSG00000189108     26280 -1.035988   1.62624  -5.53375 1.05665e-05 0.0477263
+#>   ENSG00000186732       758  0.384536   9.34706   5.41518 1.42396e-05 0.0514535
+#>                           B
+#>                   <numeric>
+#>   ENSG00000080709   4.44638
+#>   ENSG00000070886   3.18385
+#>   ENSG00000218336   3.53830
+#>   ENSG00000189108   2.83949
+#>   ENSG00000186732   3.19865
+#>   -------
+#>   seqinfo: 25 sequences from an unspecified genome; no seqlengths
 
 ## Access data of human genes as normally do with data frames
 ```
@@ -290,7 +355,7 @@ Please run this yourself to check for any updates on how to cite
 print(citation('smokingMouse'), bibtex = TRUE)
 #> To cite package 'smokingMouse' in publications use:
 #> 
-#>   Gonzalez-Padilla D, Collado-Torres L (2023). _Provides access to
+#>   Gonzalez-Padilla D, Collado-Torres L (2024). _Provides access to
 #>   smokingMouse project data _. doi:10.18129/B9.bioc.smokingMouse
 #>   <https://doi.org/10.18129/B9.bioc.smokingMouse>,
 #>   https://github.com/LieberInstitute/smokingMouse/smokingMouse - R
@@ -302,13 +367,13 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>   @Manual{,
 #>     title = {Provides access to smokingMouse project data },
 #>     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},
-#>     year = {2023},
+#>     year = {2024},
 #>     url = {http://www.bioconductor.org/packages/smokingMouse},
 #>     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 0.99.5},
 #>     doi = {10.18129/B9.bioc.smokingMouse},
 #>   }
 #> 
-#>   Gonzalez-Padilla D, Collado-Torres L (2023). "Provides access to
+#>   Gonzalez-Padilla D, Collado-Torres L (2024). "Provides access to
 #>   smokingMouse project data." _bioRxiv_. doi:10.1101/TODO
 #>   <https://doi.org/10.1101/TODO>,
 #>   <https://www.biorxiv.org/content/10.1101/TODO>.
@@ -318,7 +383,7 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>   @Article{,
 #>     title = {Provides access to smokingMouse project data},
 #>     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},
-#>     year = {2023},
+#>     year = {2024},
 #>     journal = {bioRxiv},
 #>     doi = {10.1101/TODO},
 #>     url = {https://www.biorxiv.org/content/10.1101/TODO},
