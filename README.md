@@ -136,10 +136,14 @@ use disorder; DGE: differential gene expression. </font>
 </figcaption>
 </figure>
 
+All `R` scripts created to perform such analyses can be found in [code
+on GitHub](https://github.com/LieberInstitute/smoking-nicotine-mouse/).
+
 ## smoking Mouse datasets
 
-The mouse datasets contain the following data in a single object for
-each feature (genes, exons, transcripts and exon-exon junctions):
+The mouse datasets contain the following data in a single `R`
+`RangedSummarizedExperiment`\* object for each feature (genes, exons,
+transcripts and exon-exon junctions):
 
 - **Raw data**: original read counts of the features, also including the
   original metadata of features and samples.
@@ -153,6 +157,9 @@ Moreover, you can find human data generated in Semick et al. (2018) in
 Mol Psychiatry (DOI: <https://doi.org/10.1038/s41380-018-0223-1>) that
 contain the results of a DEA in adult and prenatal human brain samples
 exposed to cigarette smoke.
+
+\*For more details, check the documentation for
+`RangedSummarizedExperiment` objects.
 
 ## Data specifics
 
@@ -186,16 +193,6 @@ DEA.
   statistics of 18,067 human genes for cigarette smoke exposure in adult
   human cortical tissue.
 
-## R/Bioconductor package
-
-The `smokingMouse` package contains functions for:
-
-- Accessing the expression data from the LIBD smoking-nicotine-mouse
-  project ([code on
-  GitHub](https://github.com/LieberInstitute/smokingMouse_Indirects)).
-  The datasets are retrieved from
-  [Bioconductor](http://bioconductor.org/)’s `ExperimentHub`.
-
 ## Installation instructions
 
 Get the latest stable `R` release from
@@ -219,12 +216,10 @@ BiocManager::install("LieberInstitute/smokingMouse")
 
 ## Example of how to access the data
 
-Through the `smokingMouse` package you can access the mouse datasets of
-the project that include the raw and processed data. Below there’s code
-you can use to access the gene data but can do the same for any of the
-datasets. For more details, check the documentation for
-`RangedSummarizedExperiment` objects. You can also find code to access
-human data.
+Below there’s example code on how to access the gene mouse and human
+data but can do the same for any of the datasets previously described.
+The datasets are retrieved from [Bioconductor](http://bioconductor.org/)
+`ExperimentHub`.
 
 ``` r
 ## Connect to ExperimentHub
@@ -310,7 +305,7 @@ rowData(rse_gene)[1:5, 1:5]
 #> ENSMUSG00000103377.1                  TEC          NA
 ## Access the original counts
 original_counts <- assays(rse_gene)$counts
-## Access the log normalized counts
+## Access the log-normalized counts
 logcounts <- assays(rse_gene)$logcounts
 
 
@@ -393,6 +388,12 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>     url = {https://www.biorxiv.org/content/10.1101/TODO},
 #>   }
 #> 
+#> 
+#> To cite the original smoking-nicotine mouse work please use: 
+#> 
+#> (TODO)
+#> 
+#> 
 #> To cite the original work from which human data come please use the following citation:
 #> 
 #> Semick, S. A., Collado-Torres, L., Markunas, C. A., Shin, J. H., Deep-Soboslay, A., Tao, R., ... 
@@ -401,11 +402,11 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #> 
 ```
 
-Please note that the `smokingMouse` and the [smoking
-mouse](https://github.com/LieberInstitute/smokingMouse_Indirects)
-project were only made possible thanks to many other R and
-bioinformatics software authors, which are cited either in the vignettes
-and/or the paper(s) describing this package.
+Please note that the `smokingMouse` package and the [study
+analyses](https://github.com/LieberInstitute/smoking-nicotine-mouse/)
+were only made possible thanks to many other `R` and bioinformatics
+software authors, which are cited either in the vignette and/or the
+paper describing this study.
 
 ## Code of Conduct
 
