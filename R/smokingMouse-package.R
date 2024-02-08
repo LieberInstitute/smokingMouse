@@ -1,10 +1,9 @@
-#' Provides access to data of the smokingMouse project
+#' Get access to the smoking-nicotine-mouse LIBD project data
 #'
-#' @description This is an ExperimentHub package that provides access to the data at the gene, exon, transcript and junction level, used
-#' in the analyses of the smokingMouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects.
+#' @description This is an ExperimentHub package that provides access to the data generated and analyzed in the [smoking-nicotine-mouse](https://github.com/LieberInstitute/smoking-nicotine-mouse/) LIBD project.
 #' License: Artistic-2.0
 #' @name smokingMouse-package
-#' @aliases smokingMouse-package smokingMouse
+#' @aliases smokingMouse-package smoking-nicotine-mouse
 #' @docType package
 #' @author Daianna Gonzalez-Padilla
 NULL

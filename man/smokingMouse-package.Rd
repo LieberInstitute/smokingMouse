@@ -3,11 +3,10 @@
 \docType{package}
 \name{smokingMouse-package}
 \alias{smokingMouse-package}
-\alias{smokingMouse}
-\title{Provides access to data of the smokingMouse project}
+\alias{smoking-nicotine-mouse}
+\title{Get access to the smoking-nicotine-mouse LIBD project data}
 \description{
-This is an ExperimentHub package that provides access to the data at the gene, exon, transcript and junction level, used
-in the analyses of the smokingMouse project. See https://github.com/LieberInstitute/smokingMouse_Indirects.
+This is an ExperimentHub package that provides access to the data generated and analyzed in the \href{https://github.com/LieberInstitute/smoking-nicotine-mouse/}{smoking-nicotine-mouse} LIBD project.
 License: Artistic-2.0
 }
 \author{
