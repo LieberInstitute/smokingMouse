@@ -17,10 +17,10 @@ meta <- data.frame(
     "de_genes_adult_human_brain_smoking"
   ),
   Description = c(
-    "RangedSummarizedExperiment with bulk RNA expression data of mouse genes in brain/blood of nicotine/smoking-exposed pup/adult mice; generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
-    "RangedSummarizedExperiment with bulk RNA expression data of mouse transcripts (tx) in brain/blood of nicotine/smoking-exposed pup/adult mice; generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
-    "RangedSummarizedExperiment with bulk RNA expression data of mouse exon-exon junctions (jx) in brain/blood of nicotine/smoking-exposed pup/adult mice; generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
-    "RangedSummarizedExperiment with bulk RNA expression data of mouse exons in brain/blood of nicotine/smoking-exposed pup/adult mice; generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
+    "RangedSummarizedExperiment with bulk RNA expression data of mouse genes in brain/blood of nicotine/smoking-exposed pup/adult mice, generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
+    "RangedSummarizedExperiment with bulk RNA expression data of mouse transcripts (tx) in brain/blood of nicotine/smoking-exposed pup/adult mice, generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
+    "RangedSummarizedExperiment with bulk RNA expression data of mouse exon-exon junctions (jx) in brain/blood of nicotine/smoking-exposed pup/adult mice, generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
+    "RangedSummarizedExperiment with bulk RNA expression data of mouse exons in brain/blood of nicotine/smoking-exposed pup/adult mice, generated at the Lieber Institute for Brain Development (LIBD) and available through the smokingMouse Bioconductor package.",
     "GRanges with the information of differential expression of human genes in the cigarette smoke-exposed human prenatal brain, generated in Semick et al. 2020 (DOI: https://doi.org/10.1038/s41380-018-0223-1) and obtained from https://github.com/LieberInstitute/Smoking_DLPFC_Devel.",
     "GRanges with the information of differential expression of human genes in the cigarette smoke-exposed human adult brain, generated in Semick et al. 2020 (DOI: https://doi.org/10.1038/s41380-018-0223-1) and obtained from https://github.com/LieberInstitute/Smoking_DLPFC_Devel."
   ),
