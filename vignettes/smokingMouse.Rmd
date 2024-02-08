@@ -52,43 +52,63 @@ bib <- c(
 # Introduction
 
 Welcome to the `smokingMouse` project.
-In this vignette we'll show you how to access the smokingMouse LIBD datasets `r Citep(bib[['smokingMouse']])`.
-You can find the analysis code and the data generation in [here](https://github.com/LieberInstitute/smokingMouse_Indirects).
+In this vignette we'll show you how to access the smoking-nicotine-mouse LIBD datasets.
+You can find the analysis code and the data generation in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/).
 
 ## Motivation 
-The main motivation to create this bioconductor package was to provide public and free access to all RNA-seq datasets that were generated for the smokingMouse project, containing many variables of interest that make it possible to answer a wide range of biological questions related to smoking and nicotine effects in mice. 
+The main motivation to create this Bioconductor package was to provide public and free access to all RNA-seq datasets that were generated for the smoking-nicotine-mouse project, containing variables of interest that make it possible to answer a wide range of biological questions related to smoking and nicotine effects in mice. 
 
 
 ## Overview
-This bulk RNA-sequencing project consisted of a differential expression analysis (DEA) involving 4 data types: genes, exons, transcripts and junctions. The main goal of this study was to explore the effects of prenatal exposure to maternal smoking and nicotine exposures on the developing mouse brain. As secondary objectives, this work evaluated: 1) the affected genes by each exposure on the adult female brain in order to compare offspring and adult results and 2) the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. Finally, DEGs identified in mice were compared against previously published results from  a human study (Semick, S.A. et al. (2018)). 
-
-
-The next table summarizes the analyses done at each level. 
-
-<figure>
-  <img src="http://research.libd.org/smokingMouse/reference/figures/Table_of_Analyses.png" align="center" width="800px" />
-  <figcaption style="color: gray; line-height: 0.94; text-align: justify"><font size="-1.5"><b>Table 1</b>:  <b>1. Data preparation</b>: in this first step, counts of genes, exons and junctions were normalized to CPM and scaled; transcript expression values were only scaled since they were already in TMP. Then, low-expression features were removed using the indicated methods and samples were separated by tissue and age in order to create subsets of the data for downstream analyses. <b>2. Exploratory Data Analysis</b>: QC metrics of the samples were examined and used to filter them; sample level effects were explored through dimensionality reduction methods and rare samples in PCA plots were manually removed from the datasets; gene level effects were evaluated with analyses of explanatory variables and variance partition. <b>3. Differential Expression Analysis</b>: with the relevant variables identified in the previous steps, the DEA was performed at the gene level for nicotine and smoking, adult and pup, and blood and brain samples, and for 3 models: the naive one modeled <span style="font-family: monospace">~Group + batch effects</span>, the adjusted model modeled <span style="font-family: monospace">~Group + Pregnancy + batch effects</span> for adults and <span style="font-family: monospace">~Group + Sex + batch effects</span> for pups, and the interaction model <span style="font-family: monospace">~Group\*Pregnancy + batch effects</span> for adults and <span style="font-family: monospace">~Group*Sex + batch effects</span> for pups; DEA on the rest of the levels was performed for pups only and using the adjusted model. After that, signals of the features in nicotine and smoking were compared, as well as the signals of exons and txs vs the effects of their genes, and genes’ signals were additionally compared in the different tissues, ages, models and species (vs human data of a previous study). All resultant DEG and DE features (and their genes) were quantified and compared based on their experiment (nic/smo) and direction of regulation (up/down); DEG were further compared against genes of DE exons and txs; mouse genes were also compared with human genes affected by cigarette smoke or associated with TUD. <b>4. Gene Ontology and KEGG</b>: taking the DEG and the genes of DE txs and exons, GO & KEGG analyses were done and the expression levels of genes that participate in brain development related processes were explored. <b>5. DE feature visualization</b>: DEG counts were represented in heatmaps in order to distinguish the groups of up and down-regulated genes. <b>6. Junction annotation</b>: for novel DE jxns of unknown gene, their nearest, preceding and following genes were determined.</font> 
-  
-<font size="0.8">Abbreviations: Jxn: junction; Tx: transcript; CPM: counts per million; TPM: transcripts per million; TMM: Trimmed Mean of M-Values; TMMwsp: TMM with singleton pairing; EDA: exploratory data analysis; QC: quality control; ribo: ribosomal; mt: mitochondrial; PCA: Principal Component Analysis; PC: principal component; MDS: Multidimensional Scaling; DEA: differential expression analysis; DE: differential expression/differentially expressed; DEG: differentially expressed genes; GO: Gene Ontology; KEGG: Kyoto Encyclopedia of Genes and Genomes; TUD: tobacco use disorder.</font>
-
- </figcaption>
-</figure>
+This bulk RNA-sequencing project consisted of a differential expression analysis (DEA) involving 4 data types: genes, exons, transcripts and exon-exon junctions. The main goal of this study was to explore the effects of prenatal exposures to smoking and nicotine on the developing mouse brain. As secondary objectives, this work evaluated: 1) the affected genes by each exposure on the adult female brain in order to compare offspring and adult results and 2) the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. Finally, DEGs identified in mice were compared against previously published results in human (Semick et al. 2020 and Toikumo et al. 2023).
 
 ## Study design
 
 <figure>
-  <img src="http://research.libd.org/smokingMouse/reference/figures/Study_design.png" align="center" width="800px" />
-  <figcaption style="color: gray; line-height: 0.88; text-align: justify"><font size="-1.5"><b>Figure 1</b>: <b>Experimental design of the study</b>. <b>A)</b> 36 pregnant dams and 35 non-pregnant female adult mice were either administered nicotine by intraperitoneal injection (IP; n=12), exposed to cigarette smoke in smoking chambers (n=24), or controls (n=35; 11 nicotine controls and 24 smoking controls). A total of 137 pups were born to pregnant dams: 19 were born to mice that were administered nicotine, 46 to mice exposed to cigarette smoke and the remaining 72 to control mice (23 to nicotine controls and 49 to smoking controls). Samples from frontal cortices of P0 pups and adults were obtained, as well as blood samples from smoking-exposed and smoking control adults. <b>B)</b> RNA was extracted, RNA-seq libraries were prepared and sequenced to obtain expression counts for genes, exons, transcripts and exon-exon junctions.</font> 
+  <img src="../man/figures/Study_design.png" align="center" width="800px" />
+  <figcaption style="color: gray; line-height: 0.88; text-align: justify"><font size="-1.5"><b>Experimental design of the study</b>. <b>A)</b> 21 pregnant mice and 26 nonpregnant female adults were either administered nicotine (n=12), exposed to cigarette smoke (n=12), or used as controls (n=23; 11 nicotine controls and 12 smoking controls). A total of 137 pups were born to pregnant mice: 19 were born to mice that were administered nicotine, 46 to mice exposed to smoking, and the remaining 72 to control mice (23 to nicotine controls and 49 to smoking controls). Frontal cortex samples of all P0 pups (n=137: 42 of nicotine and 95 of the smoking experiment) and adults (n=47: 23 of nicotine and 24 of the smoking experiment) were obtained, as well as blood samples from the smoking-exposed and smoking control adults (n=24), totaling 208 samples. Number of donors and samples are indicated in the figure. <b>B)</b> RNA was extracted from such samples and bulk RNA-seq experiments were performed, obtaining expression counts for genes, exons, transcripts and exon-exon junctions.
+  
+  </font> 
 
  </figcaption>
 </figure>
+
+# Workflow 
+
+The next table summarizes the analyses done at each level.
+
+<figure>
+  <img src="../man/figures/Table_of_Analyses.png" align="center" width="800px" />
+  <figcaption style="color: gray; line-height: 0.94; text-align: justify"><font size="-1.5"><b> Summary of analysis steps across gene expression feature levels</b>:  
+  
+  <b>1. Data processing</b>: counts of genes, exons, and exon-exon junctions were normalized to CPM and log2-transformed; transcript expression values were only log2-scaled since they were already in TPM. Lowly-expressed features were removed using the indicated functions and samples were separated by tissue and age in order to create subsets of the data for downstream analyses. 
+  
+  <b>2. Exploratory Data Analysis (EDA)</b>: QC metrics of the samples were examined and used to filter the poor quality ones. Sample level effects were explored through dimensionality reduction methods and segregated samples in PCA plots were removed from the datasets. Gene level effects were evaluated with analyses of variance partition. 
+  
+  <b>3. Differential Expression Analysis (DEA)</b>: with the relevant variables identified in the previous steps, the DEA was performed at the gene level for nicotine and smoking experiments in adult and pup brain samples, and for smoking in adult blood samples; DEA at the rest of the levels was performed for both exposures in pup brain only. DE signals of the genes in the different conditions, ages, tissues and species (human results from $^1$[Semick et al. 2020](https://www.nature.com/articles/s41380-018-0223-1)) were contrasted, as well as the DE signals of exons and transcripts vs those of their genes. We also analyzed the mean expression of significant and non-significant genes with and without DE features. Then, all resultant DEGs and DE features (and their genes) were compared by direction of regulation (up or down) between and within experiments (nicotine/smoking); mouse DEGs were also compared against human genes associated with TUD from $^2$[Toikumo et al. 2023](https://www.medrxiv.org/content/10.1101/2023.03.27.23287713v2). 
+  
+  <b>4. Functional Enrichment Analysis</b>: we obtained the GO & KEGG terms significantly enriched in our clusters of DEGs and genes of DE transcripts and exons.
+  
+  <b>5.  DGE visualization</b>:  the log2-normalized expression of DEGs was represented in heatmaps in order to distinguish the groups of up and downregulated genes.
+  
+  <b>6. Novel junction gene annotation</b>: for uncharacterized DE junctions with no annotated gene, their nearest, preceding and following genes were determined.
+  </font> 
+  
+<font size="0.8">Abbreviations: Jxn: junction; Tx(s): transcript(s); CPM: counts per million; TPM: transcripts per million; TMM: Trimmed Mean of M-Values; TMMwsp: TMM with singleton pairing; QC: quality control; PC: principal component; DEA: differential expression analysis; DE: differential expression/differentially expressed; FC: fold-change; FDR: false discovery rate; DEGs: differentially expressed genes; TUD: tobacco use disorder; DGE: differential gene expression. </font>
+
+ </figcaption>
+</figure>
+
+All `R` scripts created to perform such analyses can be found in [code on GitHub](https://github.com/LieberInstitute/smoking-nicotine-mouse/).
+
+
 
 # Basics
 
 ## Install `smokingMouse`
 
 `R` is an open-source statistical environment which can be easily modified to enhance its functionality via packages.
-`r Biocpkg("smokingMouse")` is a `R` package available via the [Bioconductor](http://bioconductor.org) repository for packages. 
+`r Biocpkg("smokingMouse")` is an `R` package available via the [Bioconductor](http://bioconductor.org) repository for packages. 
 `R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Biocpkg("smokingMouse")` by using the following commands in your `R` session:
 
 ```{r "install", eval = FALSE}
@@ -125,8 +145,7 @@ We hope that `r Biocpkg("smokingMouse")` will be useful for your research. Pleas
 citation("smokingMouse")
 ```
 
-
-# Quick start to using `smokingMouse`
+## Quick start to using `smokingMouse`
 
 To get started, please load the `r Biocpkg('smokingMouse')` package. 
 
@@ -137,57 +156,65 @@ library("smokingMouse")
 
 # smoking Mouse datasets
 
-The raw data was generated by LIBD researchers and is composed of expression counts of genes, transcripts (txs), exons and exon-exon junctions (jxns) across 208 mice samples (brain/blood; adult/pup; nicotine-exposed/smoking-exposed/controls). 
-The datasets available in `r Biocpkg("smokingMouse")` were generated by Daianna Gonzalez-Padilla. 
-The human data was generated by Semick, S.A. et al. (2018) in Mol Psychiatry, DOI: https://doi.org/10.1038/s41380-018-0223-1 and it contains the results of a DEA in adult and prenatal human brain samples exposed to cigarette smoke. 
+The raw expression data were generated by LIBD researchers and are composed of read counts of genes, exons, and exon-exon junctions (jxns), and transcripts-per-million (TPM) of transcripts (txs), across the 208 mice samples (from brain/blood; adults/pups; nicotine-exposed/smoking-exposed/controls). 
+The datasets available in this package were generated by Daianna Gonzalez-Padilla. 
+The human data were generated in Semick et al. 2018 (DOI: https://doi.org/10.1038/s41380-018-0223-1) and contain the results of a DEA in adult and prenatal human brain samples exposed to cigarette smoke. 
+
 
 ## Description of the datasets
 
 ### Mouse datasets: 
 * They are 4 `r Biocpkg('RangedSummarizedExperiment')` (RSE) objects that contain feature info in `rowData(RSE)` and sample info in `colData(RSE)`. 
-* Raw expression counts can be accessed with `assays(RSE)$counts` and the lognorm counts (log2(cpm + 0.5) for genes, exons and jxns; log2(tpm + 0.5) for txs) with `assays(RSE)$logcounts`.
+* Raw expression counts (and tpm for txs) can be accessed with `assays(RSE)$counts` and the log-transformed data (log2(cpm + 0.5) for genes, exons, and jxns, and log2(tpm + 0.5) for txs) with `assays(RSE)$logcounts`.
 
 ### Human datasets:
-* They are two data frames with the information of human genes and some relevant statistical metrics of differential expression (DE).
+* They are two data frames with the DE statistics of human genes for cigarette smoke exposure on prenatal and adult human cortical tissue. 
+
+
 
 ## Data specifics 
 
-* *'rse_gene_mouse_RNAseq_nic-smo.Rdata'*: (rse_gene object) the gene RSE object contains raw and normalized expression data of 55401 mouse genes across 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
-* *'rse_tx_mouse_RNAseq_nic-smo.Rdata'*: (rse_tx object) the tx RSE object contains raw and normalized expression data of 142604 mouse transcripts across 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
-* *'rse_exon_mouse_RNAseq_nic-smo.Rdata'*: (rse_exon object) the exon RSE object contains raw and normalized expression data of 447670 mouse exons across 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
-* *'rse_jx_mouse_RNAseq_nic-smo.Rdata'*: (rse_jx object) the jx RSE object contains raw and normalized expression data of 1436068 mouse exon-exon junctions across 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
+* *'rse_gene_mouse_RNAseq_nic-smo.Rdata'*: (`rse_gene` object) the gene RSE object contains the raw and log-normalized expression data of 55,401 mouse genes across the 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
+* *'rse_tx_mouse_RNAseq_nic-smo.Rdata'*: (`rse_tx` object) the tx RSE object contains the raw and log-scaled expression data of 142,604 mouse transcripts across the 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
+* *'rse_exon_mouse_RNAseq_nic-smo.Rdata'*: (`rse_exon` object) the exon RSE object contains the raw and log-normalized expression data of 447,670 mouse exons across the 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
+* *'rse_jx_mouse_RNAseq_nic-smo.Rdata'*: (`rse_jx` object) the jx RSE object contains the raw and log-normalized expression data of 1,436,068 mouse exon-exon junctions across the 208 samples from brains and blood of healthy and nicotine/smoking-exposed pup and adult mice. 
 
-All the above datasets contain sample and feature information and additional data of the results obtained in the filtering steps and the DEA.
+All the above datasets contain the sample and feature metadata and additional data of the results obtained in the filtering steps and the DEA.
 
-* *'de_genes_prenatal_human_brain_smoking.Rdata'*: (object with the same name) data frame with DE (ctrls vs smoking-exposed samples) data of 18067 genes in human prenatal brain samples exposed to cigarette smoke.
-* *'de_genes_adult_human_brain_smoking.Rdata'*: (object with the same name) data frame with DE (ctrls vs smoking-exposed samples) data of 18067 genes in human adult brain samples exposed to cigarette smoke.
+* *'de_genes_prenatal_human_brain_smoking.Rdata'*: (`de_genes_prenatal_human_brain_smoking` object) data frame with DE statistics of 18,067 human genes for cigarette smoke exposure in prenatal human cortical tissue. 
+* *'de_genes_adult_human_brain_smoking.Rdata'*: (`de_genes_adult_human_brain_smoking` object) data frame with DE statistics of 18,067 human genes for cigarette smoke exposure in adult human cortical tissue.
+
+
 
 ## Variables of mice data
 
 Feature information in `rowData(RSE)` contains the following variables:
 
-* `retained_after_feature_filtering`: Boolean variable that equals TRUE if the feature passed the feature filtering based on expression levels and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/code/02_build_objects/02_build_objects.R).
-* `DE_in_adult_brain_nicotine`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in adult brain samples exposed to nicotine and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
-* `DE_in_adult_brain_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in adult brain samples exposed to cigarette smoke and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
-* `DE_in_adult_blood_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in adult blood samples exposed to cigarette smoke and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
-* `DE_in_pup_brain_nicotine`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in pup brain samples exposed to nicotine and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
-* `DE_in_pup_brain_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in pup brain samples exposed to cigarette smoke and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/tree/main/code/04_DEA).
-The rest of the variables are outputs of SPEAQeasy pipeline. See [here](http://research.libd.org/SPEAQeasy/outputs.html) for a description of them. 
+* `retained_after_feature_filtering`: Boolean variable that equals TRUE if the feature passed the feature filtering based on expression levels and FALSE if not. Check code for the feature filtering analysis in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/blob/main/code/02_build_objects/02_build_objects.R).
+* `DE_in_adult_brain_nicotine`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in adult brain samples exposed to nicotine and FALSE if not. Check code for the DEA in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/tree/main/code/04_DEA).
+* `DE_in_adult_brain_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in adult brain samples exposed to cigarette smoke and FALSE if not. Check code for the DEA in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/tree/main/code/04_DEA).
+* `DE_in_adult_blood_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in adult blood samples exposed to cigarette smoke and FALSE if not. Check code for the DEA in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/tree/main/code/04_DEA).
+* `DE_in_pup_brain_nicotine`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in pup brain samples exposed to nicotine and FALSE if not. Check code for the DEA in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/tree/main/code/04_DEA).
+* `DE_in_pup_brain_smoking`: Boolean variable that equals TRUE if the feature is differentially expressed (DE) in pup brain samples exposed to cigarette smoke and FALSE if not. Check code for the DEA in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/tree/main/code/04_DEA).
+
+The rest of the variables are outputs of the *SPEAQeasy* pipeline (Eagles et al. 2021). See [here](http://research.libd.org/SPEAQeasy/outputs.html) for their description. 
 
 Sample information in `colData(RSE)` contains the following variables:
 
-* The Quality Control (QC) variables `sum`,`detected`,`subsets_Mito_sum`, `subsets_Mito_detected`, `subsets_Mito_percent`, `subsets_Ribo_sum`,`subsets_Ribo_detected` and `subsets_Ribo_percent` are returned by `addPerCellQC()`. See [here](https://rdrr.io/bioc/scuttle/man/addPerCellQC.html) for more info.
-* `retained_after_QC_sample_filtering`: Boolean variable that equals TRUE if the sample passed the sample filtering based on QC metrics and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/code/03_EDA/02_QC.R).
-* `retained_after_manual_sample_filtering`: Boolean variable that equals TRUE if the sample passed the manual sample filtering based on PCA plots and FALSE if not. Check code in [here](https://github.com/LieberInstitute/smokingMouse_Indirects/blob/main/code/03_EDA/03_PCA_MDS.R)
-The rest of the variables are outputs of SPEAQeasy. See [here](http://research.libd.org/SPEAQeasy/outputs.html) for their description. 
+* The Quality Control (QC) variables `sum`,`detected`,`subsets_Mito_sum`, `subsets_Mito_detected`, `subsets_Mito_percent`, `subsets_Ribo_sum`,`subsets_Ribo_detected` and `subsets_Ribo_percent` are returned by `addPerCellQC()` from *scuttle*. See [here](https://rdrr.io/bioc/scuttle/man/addPerCellQC.html) for more details.
+* `retained_after_QC_sample_filtering`: Boolean variable that equals TRUE if the sample passed the sample filtering based on QC metrics and FALSE if not. Check code for QC-based sample filtering in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/blob/main/code/03_EDA/02_QC.R).
+* `retained_after_manual_sample_filtering`: Boolean variable that equals TRUE if the sample passed the manual sample filtering based on PCA plots and FALSE if not. Check code for PCA-based sample filtering in [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/blob/main/code/03_EDA/03_PCA_MDS.R)
+
+The rest of the variables are outputs of *SPEAQeasy*. See their description [here](http://research.libd.org/SPEAQeasy/outputs.html). 
 
 ## Variables of human data
 
-Check [here](https://github.com/LieberInstitute/Smoking_DLPFC_Devel) to see the data generation and variables meaning.
+Check [Smoking_DLPFC_Devel code](https://github.com/LieberInstitute/Smoking_DLPFC_Devel) for human data generation and `r Biocpkg('limma')` documentation for the description of differential expression statistics.
+
 
 ## Downloading the data with `smokingMouse`
 
-Using `r Biocpkg('smokingMouse')` `r Citep(bib[['smokingMouse']])` you can download these R objects. They are hosted by [Bioconductor](http://bioconductor.org/)'s `r Biocpkg('ExperimentHub')` `r Citep(bib[['ExperimentHub']])` resource.
+Using `r Biocpkg('smokingMouse')` `r Citep(bib[['smokingMouse']])` you can download these `R` objects. They are hosted by [Bioconductor](http://bioconductor.org/)'s `r Biocpkg('ExperimentHub')` `r Citep(bib[['ExperimentHub']])` resource.
 Below you can see how to obtain these objects.
 
 ```{r 'experiment_hub'}
@@ -232,10 +259,11 @@ head(rowData(rse_gene), 3)
 
 ## Access the original counts
 class(assays(rse_gene)$counts)
+dim(assays(rse_gene)$counts)
+assays(rse_gene)$counts[1:3, 1:3]
 
-## Access the log normalized counts
+## Access the log-normalized counts
 class(assays(rse_gene)$logcounts)
-dim(assays(rse_gene)$logcounts)
 assays(rse_gene)$logcounts[1:3, 1:3]
 
 
@@ -265,9 +293,9 @@ head(de_genes_df)
 
 # Reproducibility
 
-The `r Biocpkg("smokingMouse")` package `r Citep(bib[["smokingMouse"]])` and the [smoking mouse](https://github.com/LieberInstitute/smokingMouse_Indirects) project were made possible thanks to:
+The `r Biocpkg("smokingMouse")` package `r Citep(bib[["smokingMouse"]])` and the [study analyses](https://github.com/LieberInstitute/smoking-nicotine-mouse/) were made possible thanks to:
 
-* R `r Citep(bib[["R"]])`
+* `R` `r Citep(bib[["R"]])`
 * `r Biocpkg("BiocStyle")` `r Citep(bib[["BiocStyle"]])`
 * `r CRANpkg("knitr")` `r Citep(bib[["knitr"]])`
 * `r CRANpkg("RefManageR")` `r Citep(bib[["RefManageR"]])`

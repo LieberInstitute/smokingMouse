@@ -51,21 +51,21 @@ al. 2023).
 <img src="man/figures/Study_design.png" align="center" width="800px" />
 <figcaption style="color: gray; line-height: 0.88; text-align: justify">
 
-<font size="-1.5"><b>Figure 1</b>: <b>Experimental design of the
-study</b>. <b>A)</b> 21 pregnant mice and 26 nonpregnant female adults
-were either administered nicotine (n=12), exposed to cigarette smoke
-(n=12), or used as controls (n=23; 11 nicotine controls and 12 smoking
-controls). A total of 137 pups were born to pregnant mice: 19 were born
-to mice that were administered nicotine, 46 to mice exposed to smoking,
-and the remaining 72 to control mice (23 to nicotine controls and 49 to
-smoking controls). Frontal cortex samples of all P0 pups (n=137: 42 of
-nicotine and 95 of the smoking experiment) and adults (n=47: 23 of
-nicotine and 24 of the smoking experiment) were obtained, as well as
-blood samples from the smoking-exposed and smoking control adults
-(n=24), totaling 208 samples. Number of donors and samples are indicated
-in the figure. <b>B)</b> RNA was extracted from such samples and bulk
-RNA-seq experiments were performed, obtaining expression counts for
-genes, exons, transcripts and exon-exon junctions.
+<font size="-1.5"><b>Experimental design of the study</b>. <b>A)</b> 21
+pregnant mice and 26 nonpregnant female adults were either administered
+nicotine (n=12), exposed to cigarette smoke (n=12), or used as controls
+(n=23; 11 nicotine controls and 12 smoking controls). A total of 137
+pups were born to pregnant mice: 19 were born to mice that were
+administered nicotine, 46 to mice exposed to smoking, and the remaining
+72 to control mice (23 to nicotine controls and 49 to smoking controls).
+Frontal cortex samples of all P0 pups (n=137: 42 of nicotine and 95 of
+the smoking experiment) and adults (n=47: 23 of nicotine and 24 of the
+smoking experiment) were obtained, as well as blood samples from the
+smoking-exposed and smoking control adults (n=24), totaling 208 samples.
+Number of donors and samples are indicated in the figure. <b>B)</b> RNA
+was extracted from such samples and bulk RNA-seq experiments were
+performed, obtaining expression counts for genes, exons, transcripts and
+exon-exon junctions.
 
 </font>
 
@@ -169,7 +169,7 @@ objects.
   55,401 mouse genes across the 208 samples from brains and blood of
   healthy and nicotine/smoking-exposed pup and adult mice.
 - *‘rse_tx_mouse_RNAseq_nic-smo.Rdata’*: (`rse_tx` object) the tx RSE
-  object contains the raw and log-scalted expression data of 142,604
+  object contains the raw and log-scaled expression data of 142,604
   mouse transcripts across the 208 samples from brains and blood of
   healthy and nicotine/smoking-exposed pup and adult mice.
 - *‘rse_exon_mouse_RNAseq_nic-smo.Rdata’*: (`rse_exon` object) the exon
@@ -217,7 +217,7 @@ BiocManager::install("LieberInstitute/smokingMouse")
 
 ## Example of how to access the data
 
-Below there’s example code on how to access the gene mouse and human
+Below there’s example code on how to access the mouse and human gene
 data but can do the same for any of the datasets previously described.
 The datasets are retrieved from [Bioconductor](http://bioconductor.org/)
 `ExperimentHub`.
