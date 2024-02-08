@@ -159,7 +159,8 @@ contain the results of a DEA in adult and prenatal human brain samples
 exposed to cigarette smoke.
 
 \*For more details, check the documentation for
-`RangedSummarizedExperiment` objects.
+[`RangedSummarizedExperiment`](https://www.bioconductor.org/packages/devel/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html)
+objects.
 
 ## Data specifics
 

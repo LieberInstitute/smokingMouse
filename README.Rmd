@@ -87,7 +87,7 @@ The mouse datasets contain the following data in a single `R` `RangedSummarizedE
 
 Moreover, you can find human data generated in Semick et al. (2018) in Mol Psychiatry (DOI: https://doi.org/10.1038/s41380-018-0223-1) that contain the results of a DEA in adult and prenatal human brain samples exposed to cigarette smoke. 
 
-*For more details, check the documentation for `RangedSummarizedExperiment` objects.
+*For more details, check the documentation for [`RangedSummarizedExperiment`](https://www.bioconductor.org/packages/devel/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html) objects.
 
 
 ## Data specifics 
