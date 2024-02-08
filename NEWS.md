@@ -2,4 +2,4 @@
 
 NEW FEATURES
 
-* Provides access to smokingMouse project objects. Check [here](https://github.com/LieberInstitute/smokingMouse_Indirects) for the code and data generation.
+* Get access to the smoking-nicotine-mouse LIBD project data. Check [here](https://github.com/LieberInstitute/smoking-nicotine-mouse/) for the code and data generation.
