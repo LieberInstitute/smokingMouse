@@ -54,8 +54,8 @@ al. 2023).
 <font size="-1.5"><b>Experimental design of the study</b>. <b>A)</b> 21
 pregnant mice and 26 nonpregnant female adults were either administered
 nicotine (n=12), exposed to cigarette smoke (n=12), or used as controls
-(n=23; 11 nicotine controls and 12 smoking controls). A total of 137
-pups were born to pregnant mice: 19 were born to mice that were
+(n=23; 11 nicotine controls (vehicle) and 12 smoking controls). A total
+of 137 pups were born to pregnant mice: 19 were born to mice that were
 administered nicotine, 46 to mice exposed to smoking, and the remaining
 72 to control mice (23 to nicotine controls and 49 to smoking controls).
 Frontal cortex samples of all P0 pups (n=137: 42 of nicotine and 95 of
@@ -225,9 +225,7 @@ The datasets are retrieved from [Bioconductor](http://bioconductor.org/)
 ``` r
 ## Connect to ExperimentHub
 library(ExperimentHub)
-#> Warning: package 'ExperimentHub' was built under R version 4.3.1
 #> Loading required package: BiocGenerics
-#> Warning: package 'BiocGenerics' was built under R version 4.3.1
 #> 
 #> Attaching package: 'BiocGenerics'
 #> The following objects are masked from 'package:stats':
@@ -243,7 +241,6 @@ library(ExperimentHub)
 #>     table, tapply, union, unique, unsplit, which.max, which.min
 #> Loading required package: AnnotationHub
 #> Loading required package: BiocFileCache
-#> Warning: package 'BiocFileCache' was built under R version 4.3.1
 #> Loading required package: dbplyr
 eh <- ExperimentHub::ExperimentHub()
 ```
@@ -258,10 +255,6 @@ myfiles <- query(eh, "smokingMouse")
 ########################
 ## Download the mouse gene data
 rse_gene <- myfiles[['EH8313']] 
-#> Warning: package 'GenomicRanges' was built under R version 4.3.1
-#> Warning: package 'S4Vectors' was built under R version 4.3.2
-#> Warning: package 'IRanges' was built under R version 4.3.1
-#> Warning: package 'GenomeInfoDb' was built under R version 4.3.1
 ## This is a RangedSummarizedExperiment object
 rse_gene
 #> class: RangedSummarizedExperiment 
@@ -359,7 +352,7 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>   smokingMouse project data _. doi:10.18129/B9.bioc.smokingMouse
 #>   <https://doi.org/10.18129/B9.bioc.smokingMouse>,
 #>   https://github.com/LieberInstitute/smokingMouse/smokingMouse - R
-#>   package version 0.99.5,
+#>   package version 1.0.0,
 #>   <http://www.bioconductor.org/packages/smokingMouse>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -369,24 +362,8 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},
 #>     year = {2024},
 #>     url = {http://www.bioconductor.org/packages/smokingMouse},
-#>     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 0.99.5},
+#>     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 1.0.0},
 #>     doi = {10.18129/B9.bioc.smokingMouse},
-#>   }
-#> 
-#>   Gonzalez-Padilla D, Collado-Torres L (2024). "Provides access to
-#>   smokingMouse project data." _bioRxiv_. doi:10.1101/TODO
-#>   <https://doi.org/10.1101/TODO>,
-#>   <https://www.biorxiv.org/content/10.1101/TODO>.
-#> 
-#> A BibTeX entry for LaTeX users is
-#> 
-#>   @Article{,
-#>     title = {Provides access to smokingMouse project data},
-#>     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},
-#>     year = {2024},
-#>     journal = {bioRxiv},
-#>     doi = {10.1101/TODO},
-#>     url = {https://www.biorxiv.org/content/10.1101/TODO},
 #>   }
 #> 
 #> 
