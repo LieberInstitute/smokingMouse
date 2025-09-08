@@ -106,25 +106,18 @@ variables identified in the previous steps, the DEA was performed at the
 gene level for nicotine and smoking exposure in adult and pup brain
 samples, and for smoking exposure in adult blood samples; DEA at the
 rest of the levels was performed for both exposures in pup brain only.
-DE signals of the genes in the different conditions, ages, tissues, and
+DE signals of the genes across the different experiments, sexes, ages, tissues, and
 species (using human results from $^1$[Semick et al.,
 2020](https://www.nature.com/articles/s41380-018-0223-1)) were
 contrasted, as well as the DE signals of exons and transcripts vs those
-of their genes. Mean expression of DEGs and non-DEGs genes with and
-without DE features was also analyzed. Then, all resultant DEGs and DE
-features (and their genes) were compared by direction of regulation (up
-or down) between and within exposures (nicotine/smoking); mouse DEGs
-were also compared against human genes associated with TUD from
-$^2$[Toikumo et al.,
+of their genes. Resultant DEGs and DE features (and their genes) were compared by direction of regulation (up/down) between and within exposures (nicotine/smoking); DEGs for smoking and nicotine exposure were compared between sexes and contrasted against sex-related DEGs in pup brain, and against human genes associated with TUD from $^2$[Toikumo et al.,
 2023](https://www.medrxiv.org/content/10.1101/2023.03.27.23287713v2).
 
 <b>4. Functional Enrichment Analysis</b>: GO & KEGG terms significantly
 enriched in the clusters of DEGs and genes of DE transcripts and exons
 were obtained.
 
-<b>5. DGE visualization</b>: the log2-normalized expression of DEGs was
-represented in heat maps in order to distinguish the groups of up- and
-down-regulated genes.
+<b>5. DGE visualization</b>: log2-normalized expression of DEGs was scaled and groups of up- and down-regulated genes were distinguished.
 
 <b>6. Novel junction gene annotation</b>: for uncharacterized DE
 junctions with no annotated gene, their nearest, preceding, and
